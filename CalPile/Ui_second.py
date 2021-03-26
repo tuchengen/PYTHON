@@ -416,6 +416,12 @@ class Ui_2(object):
             self.XiN=1.0
         else:
             self.XiN=0.5
+        self.A0=0.0
+        if self.comboBox_4.currentText()== "端承型":
+            self.A0=self.d*self.d*math.pi/4
+        else:
+            pass
+
         
         self.WriteMsg()
     def GetInserValue(self,ay,**kwargs):
