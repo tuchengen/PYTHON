@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1395</width>
+    <height>777</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QWidget" name="layoutWidget_4">
+   <property name="geometry">
+    <rect>
+     <x>72</x>
+     <y>263</y>
+     <width>691</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_5">
+    <item row="0" column="0">
+     <widget class="QLabel" name="ei_23">
+      <property name="text">
+       <string>桩端弯矩(kN*m)</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLineEdit" name="pileD_15">
+      <property name="text">
+       <string>0</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="2">
+     <widget class="QLabel" name="ei_24">
+      <property name="text">
+       <string>桩端水平作用力(kN)</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="3">
+     <widget class="QLineEdit" name="pileD_16">
+      <property name="text">
+       <string>10</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="4">
+     <widget class="QLabel" name="ei_25">
+      <property name="text">
+       <string>桩悬臂长度(m)</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="5">
+     <widget class="QLineEdit" name="pileD_17">
+      <property name="text">
+       <string>0</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="6">
+     <widget class="QLabel" name="ei_26">
+      <property name="text">
+       <string>单排桩的桩数</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="7">
+     <widget class="QLineEdit" name="pileD_18">
+      <property name="text">
+       <string>1</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QLabel" name="label_16">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>40</y>
+     <width>431</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 9pt &quot;微软雅黑&quot;;
+font: 14pt &quot;AcadEref&quot;;
+</string>
+   </property>
+   <property name="text">
+    <string>单桩基础或垂直于外力作用平面的单排桩基础</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="cal">
+   <property name="geometry">
+    <rect>
+     <x>580</x>
+     <y>720</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>计算</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="pileD_19">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>320</y>
+     <width>96</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>0</string>
+   </property>
+  </widget>
+  <widget class="QTextBrowser" name="textBrowser">
+   <property name="geometry">
+    <rect>
+     <x>790</x>
+     <y>40</y>
+     <width>571</width>
+     <height>701</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="layoutWidget_5">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>90</y>
+     <width>701</width>
+     <height>131</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_6">
+    <item row="0" column="0">
+     <widget class="QLabel" name="ei_28">
+      <property name="text">
+       <string>混凝土</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QComboBox" name="comboBox_7">
+      <property name="currentIndex">
+       <number>1</number>
+      </property>
+      <item>
+       <property name="text">
+        <string>C15</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>C20</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>C25</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>C30</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>C35</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>C40</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>C45</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>C50</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>C55</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>C60</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>C65</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>C70</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>C75</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>C80</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="0" column="3">
+     <widget class="QLabel" name="ei_29">
+      <property name="text">
+       <string>钢筋</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="4" colspan="2">
+     <widget class="QComboBox" name="comboBox_8">
+      <property name="currentIndex">
+       <number>1</number>
+      </property>
+      <item>
+       <property name="text">
+        <string>HPB300</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>HRB335</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>HRB400</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>HRBF400</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>RRB400</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>HRB500</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>HRBF500</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="0" column="6">
+     <widget class="QLabel" name="ei_30">
+      <property name="text">
+       <string>桩径（m）</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="7">
+     <widget class="QLineEdit" name="pileD_20">
+      <property name="text">
+       <string>2</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="8">
+     <widget class="QLabel" name="ei_31">
+      <property name="text">
+       <string>桩长（m）</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="9">
+     <widget class="QLineEdit" name="pileD_21">
+      <property name="text">
+       <string>8</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="alpha_5">
+      <property name="text">
+       <string>钢筋直径（mm）</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1" colspan="2">
+     <widget class="QLineEdit" name="gjd_3">
+      <property name="text">
+       <string>25</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="3">
+     <widget class="QLabel" name="alpha_6">
+      <property name="text">
+       <string>钢筋根数</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="4" colspan="2">
+     <widget class="QLineEdit" name="gjn_3">
+      <property name="text">
+       <string>16</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="6">
+     <widget class="QLabel" name="ei_32">
+      <property name="text">
+       <string>保护层（m）</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="7">
+     <widget class="QLineEdit" name="safe_3">
+      <property name="text">
+       <string>0.06</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="8">
+     <widget class="QLabel" name="ei_33">
+      <property name="text">
+       <string>支撑类型</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="9">
+     <widget class="QComboBox" name="comboBox_9">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <item>
+       <property name="text">
+        <string>非岩石类土中</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>基岩石表面</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>嵌固于基岩</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="2" column="0" colspan="2">
+     <widget class="QLabel" name="label_17">
+      <property name="text">
+       <string>第1层土m值（MN/m^4）</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="2" colspan="2">
+     <widget class="QLineEdit" name="lineEdit_13">
+      <property name="text">
+       <string>8</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="4">
+     <widget class="QLabel" name="label_18">
+      <property name="text">
+       <string>第1层土深度（m）</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="5" colspan="3">
+     <widget class="QLineEdit" name="lineEdit_14">
+      <property name="text">
+       <string>10</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0" colspan="2">
+     <widget class="QLabel" name="label_19">
+      <property name="text">
+       <string>第2层土m值（MN/m^4）</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="2" colspan="2">
+     <widget class="QLineEdit" name="lineEdit_15">
+      <property name="text">
+       <string>8</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="4">
+     <widget class="QLabel" name="label_20">
+      <property name="text">
+       <string>第2层土深度（m）</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="5" colspan="3">
+     <widget class="QLineEdit" name="lineEdit_16">
+      <property name="text">
+       <string>10</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0" colspan="2">
+     <widget class="QLabel" name="label_21">
+      <property name="text">
+       <string>第3层土m值（MN/m^4）</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="2" colspan="2">
+     <widget class="QLineEdit" name="lineEdit_17">
+      <property name="text">
+       <string>8</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="4">
+     <widget class="QLabel" name="label_22">
+      <property name="text">
+       <string>第3层土深度（m）</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="5" colspan="3">
+     <widget class="QLineEdit" name="lineEdit_18">
+      <property name="text">
+       <string>10</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QPushButton" name="exitp">
+   <property name="geometry">
+    <rect>
+     <x>680</x>
+     <y>720</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>退出</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="ei_27">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>320</y>
+     <width>341</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>附录表C.0.3-1第6项求地面以下任一深度的桩身内力的深度y(m)</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,793 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1395</width>
+    <height>777</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>128</x>
+     <y>31</y>
+     <width>391</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 11pt &quot;AcadEref&quot;;</string>
+   </property>
+   <property name="text">
+    <string>位于(或平行于)外力作用面的单排（或多排）低桩承台基础</string>
+   </property>
+  </widget>
+  <widget class="QTextBrowser" name="textBrowser">
+   <property name="geometry">
+    <rect>
+     <x>810</x>
+     <y>0</y>
+     <width>581</width>
+     <height>771</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QTableWidget" name="tableWidget">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>290</y>
+     <width>211</width>
+     <height>451</height>
+    </rect>
+   </property>
+   <row>
+    <property name="text">
+     <string/>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string/>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string/>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string/>
+    </property>
+   </row>
+   <column>
+    <property name="text">
+     <string>x坐标（mm）</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>y坐标（mm）</string>
+    </property>
+   </column>
+   <item row="0" column="0">
+    <property name="text">
+     <string>1500</string>
+    </property>
+   </item>
+   <item row="0" column="1">
+    <property name="text">
+     <string>1500</string>
+    </property>
+   </item>
+   <item row="1" column="0">
+    <property name="text">
+     <string>-1500</string>
+    </property>
+   </item>
+   <item row="1" column="1">
+    <property name="text">
+     <string>1500</string>
+    </property>
+   </item>
+   <item row="2" column="0">
+    <property name="text">
+     <string>-1500</string>
+    </property>
+   </item>
+   <item row="2" column="1">
+    <property name="text">
+     <string>-1500</string>
+    </property>
+   </item>
+   <item row="3" column="0">
+    <property name="text">
+     <string>1500</string>
+    </property>
+   </item>
+   <item row="3" column="1">
+    <property name="text">
+     <string>-1500</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>660</x>
+     <y>710</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>计算</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_2">
+   <property name="geometry">
+    <rect>
+     <x>701</x>
+     <y>55</y>
+     <width>97</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>6</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>641</x>
+     <y>55</y>
+     <width>54</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>桩长（m）</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_2">
+   <property name="geometry">
+    <rect>
+     <x>322</x>
+     <y>55</y>
+     <width>68</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>HPB300</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>HRB335</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>HRB400</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>HRBF400</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>RRB400</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>HRB500</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>HRBF500</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>396</x>
+     <y>55</y>
+     <width>54</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>桩径（m）</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit">
+   <property name="geometry">
+    <rect>
+     <x>477</x>
+     <y>55</y>
+     <width>133</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>1.0</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>39</x>
+     <y>55</y>
+     <width>36</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>混凝土</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox">
+   <property name="geometry">
+    <rect>
+     <x>159</x>
+     <y>55</y>
+     <width>44</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>C15</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>C20</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>C25</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>C30</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>C35</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>C40</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>C45</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>C50</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>C55</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>C60</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>C65</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>C70</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>C75</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>C80</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>226</x>
+     <y>55</y>
+     <width>24</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>钢筋</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>39</x>
+     <y>81</y>
+     <width>84</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>钢筋直径（mm）</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_3">
+   <property name="geometry">
+    <rect>
+     <x>159</x>
+     <y>81</y>
+     <width>61</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>25</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_7">
+   <property name="geometry">
+    <rect>
+     <x>226</x>
+     <y>81</y>
+     <width>48</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>钢筋根数</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_4">
+   <property name="geometry">
+    <rect>
+     <x>322</x>
+     <y>81</y>
+     <width>68</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>20</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_8">
+   <property name="geometry">
+    <rect>
+     <x>396</x>
+     <y>81</y>
+     <width>66</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>保护层（m）</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_5">
+   <property name="geometry">
+    <rect>
+     <x>477</x>
+     <y>81</y>
+     <width>133</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>0.06</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_9">
+   <property name="geometry">
+    <rect>
+     <x>641</x>
+     <y>81</y>
+     <width>48</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>支撑类型</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_3">
+   <property name="geometry">
+    <rect>
+     <x>701</x>
+     <y>81</y>
+     <width>97</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>非岩石类土中</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>基岩石表面</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>嵌固于岩层</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="label_13">
+   <property name="geometry">
+    <rect>
+     <x>39</x>
+     <y>107</y>
+     <width>114</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>第一层土m值(MN/m^4)</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_9">
+   <property name="geometry">
+    <rect>
+     <x>159</x>
+     <y>107</y>
+     <width>61</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>8</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_14">
+   <property name="geometry">
+    <rect>
+     <x>226</x>
+     <y>107</y>
+     <width>90</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>第一层土深度(m)</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_10">
+   <property name="geometry">
+    <rect>
+     <x>322</x>
+     <y>107</y>
+     <width>68</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>10</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_15">
+   <property name="geometry">
+    <rect>
+     <x>39</x>
+     <y>133</y>
+     <width>114</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>第二层土m值(MN/m^4)</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_11">
+   <property name="geometry">
+    <rect>
+     <x>159</x>
+     <y>133</y>
+     <width>61</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>8</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_16">
+   <property name="geometry">
+    <rect>
+     <x>226</x>
+     <y>133</y>
+     <width>90</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>第二层土深度(m)</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_12">
+   <property name="geometry">
+    <rect>
+     <x>322</x>
+     <y>133</y>
+     <width>68</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>10</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_17">
+   <property name="geometry">
+    <rect>
+     <x>39</x>
+     <y>159</y>
+     <width>114</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>第三层土m值(MN/m^4)</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_13">
+   <property name="geometry">
+    <rect>
+     <x>159</x>
+     <y>159</y>
+     <width>61</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>8</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_18">
+   <property name="geometry">
+    <rect>
+     <x>226</x>
+     <y>159</y>
+     <width>90</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>第三层土深度(m)</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_14">
+   <property name="geometry">
+    <rect>
+     <x>322</x>
+     <y>159</y>
+     <width>68</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>10</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_10">
+   <property name="geometry">
+    <rect>
+     <x>39</x>
+     <y>185</y>
+     <width>156</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>下压力+承台重（N+G）（kg）</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_6">
+   <property name="geometry">
+    <rect>
+     <x>201</x>
+     <y>185</y>
+     <width>73</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>120</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_11">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>185</y>
+     <width>72</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>水平荷载(kN)</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_7">
+   <property name="geometry">
+    <rect>
+     <x>359</x>
+     <y>185</y>
+     <width>67</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>100</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_12">
+   <property name="geometry">
+    <rect>
+     <x>432</x>
+     <y>185</y>
+     <width>84</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>承台弯矩(kN*m)</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_8">
+   <property name="geometry">
+    <rect>
+     <x>522</x>
+     <y>185</y>
+     <width>113</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>500</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_19">
+   <property name="geometry">
+    <rect>
+     <x>256</x>
+     <y>211</y>
+     <width>36</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>桩数目</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_15">
+   <property name="geometry">
+    <rect>
+     <x>301</x>
+     <y>211</y>
+     <width>89</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>4</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_20">
+   <property name="geometry">
+    <rect>
+     <x>477</x>
+     <y>211</y>
+     <width>78</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>承台埋深（m）</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_16">
+   <property name="geometry">
+    <rect>
+     <x>561</x>
+     <y>211</y>
+     <width>74</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>1</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_21">
+   <property name="geometry">
+    <rect>
+     <x>39</x>
+     <y>211</y>
+     <width>36</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>桩类型</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_4">
+   <property name="geometry">
+    <rect>
+     <x>99</x>
+     <y>211</y>
+     <width>62</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>端承型</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>摩擦型</string>
+    </property>
+   </item>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>lineEdit_15</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>tableWidget</receiver>
+   <slot>resizeRowsToContents()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>161</x>
+     <y>256</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>135</x>
+     <y>515</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

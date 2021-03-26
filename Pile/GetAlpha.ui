@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>804</width>
+    <height>602</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QDialogButtonBox" name="buttonBox">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>550</y>
+     <width>341</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+   <property name="standardButtons">
+    <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+   </property>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>30</y>
+     <width>539</width>
+     <height>94</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="1" column="4">
+     <widget class="QLabel" name="label_6">
+      <property name="text">
+       <string>保护层厚度（mm）</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="4">
+     <widget class="QLabel" name="label_5">
+      <property name="text">
+       <string>桩径（mm）</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>钢筋直径（mm）</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="5">
+     <widget class="QLineEdit" name="piled">
+      <property name="text">
+       <string>800</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="3">
+     <widget class="QLineEdit" name="gjn">
+      <property name="text">
+       <string>10</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QComboBox" name="hntleavel">
+      <item>
+       <property name="text">
+        <string>C15</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>C20</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>C25</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>C30</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>C35</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>C40</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>C45</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>C50</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>C55</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>C60</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>C65</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>C70</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>C75</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>C80</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLineEdit" name="gjd">
+      <property name="text">
+       <string>20</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="2">
+     <widget class="QLabel" name="label_4">
+      <property name="text">
+       <string>钢筋根数</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="2">
+     <widget class="QLabel" name="label_3">
+      <property name="text">
+       <string>钢筋等级</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="3">
+     <widget class="QComboBox" name="gjleveal">
+      <item>
+       <property name="text">
+        <string>HPB300</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>HRB335</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>HRB400</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>HRBF400</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>RRB400</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>HRB500</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>HRBF500</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="1" column="5">
+     <widget class="QLineEdit" name="lineEdit_6">
+      <property name="text">
+       <string>50</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>混凝土等级</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QLineEdit" name="gjd_3">
+      <property name="text">
+       <string>6</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="m0_2">
+      <property name="text">
+       <string>水平抗力系数比例系数(MN/m^4)</string>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::MarkdownText</enum>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QTextBrowser" name="textBrowser">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>310</y>
+     <width>791</width>
+     <height>192</height>
+    </rect>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>Dialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>648</x>
+     <y>564</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>Dialog</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>716</x>
+     <y>570</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
