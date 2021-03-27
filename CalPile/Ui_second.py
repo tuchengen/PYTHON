@@ -444,7 +444,15 @@ class Ui_2(object):
         if self.comboBox_4.currentText()== "端承型":
             self.A0=self.d*self.d*math.pi/4
         else:
-            pass
+            self.phim=0.0
+            if self.h<h1:
+                self.phim=float(self.lineEdit_17.text())
+            elif self.h<h1+h2:
+                self.phim=(float(self.lineEdit_17.text())*h1+float(self.lineEdit_18.text())*(self.h-h1))/self.h
+            else:
+                self.phim=(float(self.lineEdit_17.text())*h1+float(self.lineEdit_18.text())*h2+float(self.lineEdit_19.text())*(self.h-h1-h2))/self.h
+        self.opop=float(self.tableWidget.item(0, 0).text())
+            
 
         
         self.WriteMsg()
@@ -523,3 +531,6 @@ class Ui_2(object):
             self.textBrowser.append("桩底支撑类型为%s 时候（附录表C.0.3-1注第2条公式）δHH=%.5f\n"%(self.zhuangtype,self.delataHH))
             self.textBrowser.append("桩底支撑类型为%s 时候（附录表C.0.3-1注第2条公式） δMH=δHM=%.5f\n"%(self.zhuangtype,self.delataHM))
             self.textBrowser.append("桩底支撑类型为%s 时候（附录表C.0.3-1注第2条公式） δMM=%.5f\n"%(self.zhuangtype,self.delataMM))
+
+        self.textBrowser.append("桩身轴向压力传递系数ξN=%.1f\n"%(self.XiN))
+        self.textBrowser.append("桩身轴向压力传递系数ξN=%.1f\n"%(self.opop))  
