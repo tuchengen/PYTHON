@@ -451,13 +451,19 @@ class Ui_2(object):
                 self.phim=(float(self.lineEdit_17.text())*h1+float(self.lineEdit_18.text())*(self.h-h1))/self.h
             else:
                 self.phim=(float(self.lineEdit_17.text())*h1+float(self.lineEdit_18.text())*h2+float(self.lineEdit_19.text())*(self.h-h1-h2))/self.h
-            A01=math.pi*pow(self.h*math.tan(self.phim/720*math.pi),2)
+            A01=math.pi*pow(self.h*math.tan(self.phim/720*math.pi)+self.d/2,2)
             self.s=math.sqrt(math.pow(float(self.tableWidget.item(0, 0).text())-float(self.tableWidget.item(1, 0).text()),2)+math.pow(float(self.tableWidget.item(0, 1).text())-float(self.tableWidget.item(1, 1).text()),2))
             A02=math.pi/4*pow(self.s*1e-3,2)
-            self.A0=max(A01, A02)
+            self.A0=min(A01, A02)
         C0A0=self.C0*self.A0
         EA=self.Ehnt*self.d*self.d*math.pi/4
+        print("C0A0",C0A0,"EA",EA)
         self.RhoNN=1/(self.XiN*self.h/EA+1/C0A0)
+        self.RhoHH=self.delataMM/(self.delataHH*self.delataMM-self.delataMH*self.delataMH)
+        self.RhoMH=self.delataMH/(self.delataHH*self.delataMM-self.delataMH*self.delataMH)
+        self.RhoHM=self.RhoMH
+        self.RhoMM=self.delataMH/(self.delataHH*self.delataMM-self.delataMH*self.delataMH)
+        self.Cn=m1*float(self.lineEdit_16.text())
         self.WriteMsg()
     def GetInserValue(self,ay,**kwargs):
         if ay>4:
@@ -541,3 +547,9 @@ class Ui_2(object):
             self.textBrowser.append("摩擦型桩按照（附录表C.0.3-2注第2条公式）A0=%.5f\n"%(self.A0))
             self.textBrowser.append("其中 桩周内摩阻角加权值φm=%.5f(°);桩的中心距s=%.5f(m)\n"%(self.phim,self.s*1e-3))
         self.textBrowser.append("发生单位竖向位移时轴向力（附录表C.0.3-2第4项公式）ρNN=%.5f\n"%(self.RhoNN))
+        self.textBrowser.append("发生单位水平位移时水平力（附录表C.0.3-2第4项公式）ρHH=%.5f\n"%(self.RhoHH))
+        self.textBrowser.append("发生单位水平位移时弯矩（附录表C.0.3-2第4项公式）ρMH=%.5f\n"%(self.RhoMH))
+        self.textBrowser.append("发生单位转角时水平力（附录表C.0.3-2第4项公式）ρHM=%.5f\n"%(self.RhoHM))
+        self.textBrowser.append("发生单位转角时弯矩（附录表C.0.3-2第4项公式）ρMM=%.5f\n"%(self.RhoMM))
+        self.textBrowser.append("-------------------------------------------------------------------------\n")
+        self.textBrowser.append("根据式 C.0.2-4 承台侧面地基水平抗力系数（目前仅支持承台埋入在第一层土中）Cn=%.5f\n"%(self.Cn))
