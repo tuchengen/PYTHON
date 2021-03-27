@@ -451,10 +451,13 @@ class Ui_2(object):
                 self.phim=(float(self.lineEdit_17.text())*h1+float(self.lineEdit_18.text())*(self.h-h1))/self.h
             else:
                 self.phim=(float(self.lineEdit_17.text())*h1+float(self.lineEdit_18.text())*h2+float(self.lineEdit_19.text())*(self.h-h1-h2))/self.h
-        self.opop=float(self.tableWidget.item(0, 0).text())
-            
-
-        
+            A01=math.pi*pow(self.h*math.tan(self.phim/720*math.pi),2)
+            self.s=math.sqrt(math.pow(float(self.tableWidget.item(0, 0).text())-float(self.tableWidget.item(1, 0).text()),2)+math.pow(float(self.tableWidget.item(0, 1).text())-float(self.tableWidget.item(1, 1).text()),2))
+            A02=math.pi/4*pow(self.s*1e-3,2)
+            self.A0=max(A01, A02)
+        C0A0=self.C0*self.A0
+        EA=self.Ehnt*self.d*self.d*math.pi/4
+        self.RhoNN=1/(self.XiN*self.h/EA+1/C0A0)
         self.WriteMsg()
     def GetInserValue(self,ay,**kwargs):
         if ay>4:
@@ -531,6 +534,10 @@ class Ui_2(object):
             self.textBrowser.append("桩底支撑类型为%s 时候（附录表C.0.3-1注第2条公式）δHH=%.5f\n"%(self.zhuangtype,self.delataHH))
             self.textBrowser.append("桩底支撑类型为%s 时候（附录表C.0.3-1注第2条公式） δMH=δHM=%.5f\n"%(self.zhuangtype,self.delataHM))
             self.textBrowser.append("桩底支撑类型为%s 时候（附录表C.0.3-1注第2条公式） δMM=%.5f\n"%(self.zhuangtype,self.delataMM))
-
         self.textBrowser.append("桩身轴向压力传递系数ξN=%.1f\n"%(self.XiN))
-        self.textBrowser.append("桩身轴向压力传递系数ξN=%.1f\n"%(self.opop))  
+        if self.comboBox_4.currentText()== "端承型":
+            self.textBrowser.append("端承型桩按照（附录表C.0.3-2注第2条公式）A0=%.5f\n"%(self.A0))
+        else:
+            self.textBrowser.append("摩擦型桩按照（附录表C.0.3-2注第2条公式）A0=%.5f\n"%(self.A0))
+            self.textBrowser.append("其中 桩周内摩阻角加权值φm=%.5f(°);桩的中心距s=%.5f(m)\n"%(self.phim,self.s*1e-3))
+        self.textBrowser.append("发生单位竖向位移时轴向力（附录表C.0.3-2第4项公式）ρNN=%.5f\n"%(self.RhoNN))
