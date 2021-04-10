@@ -363,6 +363,8 @@ class Ui_2(object):
                 self.tableWidget.setItem(0, 0, item)
                 item = QtWidgets.QTableWidgetItem()
                 self.tableWidget.setItem(0, 1, item)
+    def GetZhuangXY(self):
+        pass
 
     def Cal(self):
         self.d=float(self.lineEdit.text()) 
@@ -499,6 +501,9 @@ class Ui_2(object):
         self.CtB=float(self.lineEdit_22.text())
         self.F=self.CtL*self.CtB
         self.Ab=self.F-float(self.lineEdit_15.text())*self.d*self.d*math.pi/4
+        self.Fc=0.5*self.Cn*self.hn
+        self.Sc=self.Cn*self.hn*self.hn/6
+        self.Ic=self.Cn*self.hn*self.hn*self.hn/12
         self.WriteMsg()
     def GetInserValue(self,ay,**kwargs):
         if ay>4:
@@ -590,4 +595,6 @@ class Ui_2(object):
         self.textBrowser.append("根据式 C.0.2-4 承台侧面地基水平抗力系数（目前仅支持承台埋入在第一层土中）Cn=m0*h=%.2f*%.2f=%.2f\n"%(float(self.lineEdit_9.text()),self.h if self.h > 10 else 10,self.Cn))
         self.textBrowser.append("根据《桩规》 表5.2.5 承台效应系数（当前小程序在界面输入）ηc=%.5f\n"%(self.etac))
         self.textBrowser.append("根据式 C.0.2-5 承台底地基土竖向抗力系数Cb=m0*hn*ηc=%.2f*%.2f*%.2f=%.2f\n"%(float(self.lineEdit_9.text()),self.hn,self.etac,self.Cb))
-        self.textBrowser.append()
+        self.textBrowser.append("根据《桩规》P135 表C.0.3-2 注第3条 承台底面以上侧向水平抗力系数C图像的面积 Fc=Cn*hn/2=%.2f*%.2f/2=%.2f\n"%(self.Cn,self.hn,self.Fc))
+        self.textBrowser.append("根据《桩规》P135 表C.0.3-2 注第3条 对于底面的面积矩 Sc=Cn*hn^2/6=%.2f*%.2f^2/6=%.2f\n"%(self.Cn,self.hn,self.Sc))
+        self.textBrowser.append("根据《桩规》P135 表C.0.3-2 注第3条 对于底面的惯性矩 Ic=Cn*hn^3/12=%.2f*%.2f^3/12=%.2f\n"%(self.Cn,self.hn,self.Ic))
