@@ -364,7 +364,15 @@ class Ui_2(object):
                 item = QtWidgets.QTableWidgetItem()
                 self.tableWidget.setItem(0, 1, item)
     def GetZhuangXY(self):
-        pass
+        ZhuangXY=[]
+        for i in range(self.tableWidget.rowCount()):
+            xy={}
+            item1= self.tableWidget.item(i, 0)
+            item2= self.tableWidget.item(i, 1)
+            xy["x"]=item1.text()
+            xy["y"]=item2.text()
+            ZhuangXY.append(xy)
+        return ZhuangXY
 
     def Cal(self):
         self.d=float(self.lineEdit.text()) 
@@ -505,6 +513,8 @@ class Ui_2(object):
         self.Sc=self.Cn*self.hn*self.hn/6
         self.Ic=self.Cn*self.hn*self.hn*self.hn/12
         self.WriteMsg()
+        self.ZhuangXY=self.GetZhuangXY()
+        print(self.ZhuangXY)
     def GetInserValue(self,ay,**kwargs):
         if ay>4:
             ay=4
