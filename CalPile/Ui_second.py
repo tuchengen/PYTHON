@@ -521,7 +521,7 @@ class Ui_2(object):
             else:
                 ZhuangX.add(Zhuang["x"])
         print(ZhuangX)
-        print(len(ZhuangX))
+        print(len(ZhuangX)) 
         self.WriteMsg()
     def GetInserValue(self,ay,**kwargs):
         if ay>4:
