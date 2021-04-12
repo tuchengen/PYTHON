@@ -369,8 +369,8 @@ class Ui_2(object):
             xy={}
             item1= self.tableWidget.item(i, 0)
             item2= self.tableWidget.item(i, 1)
-            xy["x"]=item1.text()
-            xy["y"]=item2.text()
+            xy["x"]=float(item1.text())
+            xy["y"]=float(item2.text())
             ZhuangXY.append(xy)
         return ZhuangXY
 
@@ -512,9 +512,17 @@ class Ui_2(object):
         self.Fc=0.5*self.Cn*self.hn
         self.Sc=self.Cn*self.hn*self.hn/6
         self.Ic=self.Cn*self.hn*self.hn*self.hn/12
-        self.WriteMsg()
         self.ZhuangXY=self.GetZhuangXY()
         print(self.ZhuangXY)
+        ZhuangX=set()
+        for Zhuang in self.ZhuangXY:
+            if Zhuang["x"] in ZhuangX:
+                pass
+            else:
+                ZhuangX.add(Zhuang["x"])
+        print(ZhuangX)
+        print(len(ZhuangX))
+        self.WriteMsg()
     def GetInserValue(self,ay,**kwargs):
         if ay>4:
             ay=4
