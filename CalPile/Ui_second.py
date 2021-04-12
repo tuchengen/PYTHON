@@ -514,14 +514,19 @@ class Ui_2(object):
         self.Ic=self.Cn*self.hn*self.hn*self.hn/12
         self.ZhuangXY=self.GetZhuangXY()
         print(self.ZhuangXY)
-        ZhuangX=set()
+        ZhuangY=set()
+        ZhuangPAi=[]
+        paiindex=1
         for Zhuang in self.ZhuangXY:
-            if Zhuang["x"] in ZhuangX:
+            SingleZhuangPai={}
+            if Zhuang["y"] in ZhuangY:
+                SingleZhuangPai[Zhuang["y"]]=[]
+                SingleZhuangPai[Zhuang["y"]].append(Zhuang["x"])
                 pass
             else:
-                ZhuangX.add(Zhuang["x"])
-        print(ZhuangX)
-        print(len(ZhuangX)) 
+                ZhuangY.add(Zhuang["y"])
+        ilen=len(ZhuangY)#记录桩排数
+        
         self.WriteMsg()
     def GetInserValue(self,ay,**kwargs):
         if ay>4:
