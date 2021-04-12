@@ -513,59 +513,62 @@ class Ui_2(object):
         self.Sc=self.Cn*self.hn*self.hn/6
         self.Ic=self.Cn*self.hn*self.hn*self.hn/12
         self.ZhuangXY=self.GetZhuangXY()
-        print(self.ZhuangXY)
-        ZhuangX=set()
+        ZhuangY=set()
+        pai={}
         for Zhuang in self.ZhuangXY:
-            if Zhuang["x"] in ZhuangX:
+            paiitem={}
+            if Zhuang["y"] in ZhuangY:
+                pai[Zhuang["y"]].append(Zhuang["x"])
                 pass
             else:
-                ZhuangX.add(Zhuang["x"])
-        print(ZhuangX)
-        print(len(ZhuangX)) 
+                pai[Zhuang["y"]]=[]
+                pai[Zhuang["y"]].append(Zhuang["x"])
+                ZhuangY.add(Zhuang["y"])
+                000000
         self.WriteMsg()
     def GetInserValue(self,ay,**kwargs):
         if ay>4:
             ay=4
-        arrX=self.tools.GetValueFromXls('E:\\pp.xls',0)
+        arrX=self.tools.GetValueFromXls('D:\\pp.xls',0)
         arrY=[]
         if kwargs['type']=='B3D4-B4D3':
-            arrY=self.tools.GetValueFromXls('E:\\pp.xls',9)
+            arrY=self.tools.GetValueFromXls('D:\\pp.xls',9)
         elif kwargs['type']=='A3B4-A4B3':
-            arrY=self.tools.GetValueFromXls('E:\\pp.xls',10)
+            arrY=self.tools.GetValueFromXls('D:\\pp.xls',10)
         elif kwargs['type']=='B2D4-B4D2':
-            arrY=self.tools.GetValueFromXls('E:\\pp.xls',11)
+            arrY=self.tools.GetValueFromXls('D:\\pp.xls',11)
         elif kwargs['type']=='A2B4-A4B2':
-            arrY=self.tools.GetValueFromXls('E:\\pp.xls',12)
+            arrY=self.tools.GetValueFromXls('D:\\pp.xls',12)
         elif kwargs['type']=='A3D4-A4D3':
-            arrY=self.tools.GetValueFromXls('E:\\pp.xls',13)
+            arrY=self.tools.GetValueFromXls('D:\\pp.xls',13)
         elif kwargs['type']=='A2D4-A4D2':
-            arrY=self.tools.GetValueFromXls('E:\\pp.xls',14)
+            arrY=self.tools.GetValueFromXls('D:\\pp.xls',14)
         elif kwargs['type']=='A3C4-A4C3':
-            arrY=self.tools.GetValueFromXls('E:\\pp.xls',15)
+            arrY=self.tools.GetValueFromXls('D:\\pp.xls',15)
         elif kwargs['type']=='A2C4-A4C2':
-            arrY=self.tools.GetValueFromXls('E:\\pp.xls',16)
+            arrY=self.tools.GetValueFromXls('D:\\pp.xls',16)
         elif kwargs['type']=='A3':
-            arrY=self.tools.GetValueFromXls('E:\\pp.xls',1)
+            arrY=self.tools.GetValueFromXls('D:\\pp.xls',1)
         elif kwargs['type']=='B3':
-            arrY=self.tools.GetValueFromXls('E:\\pp.xls',2)
+            arrY=self.tools.GetValueFromXls('D:\\pp.xls',2)
         elif kwargs['type']=='C3':
-            arrY=self.tools.GetValueFromXls('E:\\pp.xls',3)
+            arrY=self.tools.GetValueFromXls('D:\\pp.xls',3)
         elif kwargs['type']=='D3':
-            arrY=self.tools.GetValueFromXls('E:\\pp.xls',4)
+            arrY=self.tools.GetValueFromXls('D:\\pp.xls',4)
         elif kwargs['type']=='A4':
-            arrY=self.tools.GetValueFromXls('E:\\pp.xls',5)
+            arrY=self.tools.GetValueFromXls('D:\\pp.xls',5)
         elif kwargs['type']=='B4':
-            arrY=self.tools.GetValueFromXls('E:\\pp.xls',6)
+            arrY=self.tools.GetValueFromXls('D:\\pp.xls',6)
         elif kwargs['type']=='C4':
-            arrY=self.tools.GetValueFromXls('E:\\pp.xls',7)
+            arrY=self.tools.GetValueFromXls('D:\\pp.xls',7)
         elif kwargs['type']=='D4':
-            arrY=self.tools.GetValueFromXls('E:\\pp.xls',8)
+            arrY=self.tools.GetValueFromXls('D:\\pp.xls',8)
         elif kwargs['type']=='B2D1B1D2overA2B1A1B2':
-            arrY=self.tools.GetValueFromXls('E:\\pp.xls',20)
+            arrY=self.tools.GetValueFromXls('D:\\pp.xls',20)
         elif kwargs['type']=='A2D1A1D2overA2B1A1B2':
-            arrY=self.tools.GetValueFromXls('E:\\pp.xls',21)
+            arrY=self.tools.GetValueFromXls('D:\\pp.xls',21)
         elif kwargs['type']=='A2C1A1C2overA2B1A1B2':
-            arrY=self.tools.GetValueFromXls('E:\\pp.xls',22)
+            arrY=self.tools.GetValueFromXls('D:\\pp.xls',22)
         return self.tools.GetInsrtValue(arrX,arrY,ay)
 
     def WriteMsg(self):
