@@ -513,20 +513,24 @@ class Ui_2(object):
         self.Sc=self.Cn*self.hn*self.hn/6
         self.Ic=self.Cn*self.hn*self.hn*self.hn/12
         self.ZhuangXY=self.GetZhuangXY()
-        print(self.ZhuangXY)
         ZhuangY=set()
-        ZhuangPAi=[]
-        paiindex=1
+        pai={}
         for Zhuang in self.ZhuangXY:
-            SingleZhuangPai={}
             if Zhuang["y"] in ZhuangY:
-                SingleZhuangPai[Zhuang["y"]]=[]
-                SingleZhuangPai[Zhuang["y"]].append(Zhuang["x"])
+                pai[Zhuang["y"]].append(Zhuang["x"])
                 pass
             else:
+                pai[Zhuang["y"]]=[]
+                pai[Zhuang["y"]].append(Zhuang["x"])
                 ZhuangY.add(Zhuang["y"])
-        ilen=len(ZhuangY)#记录桩排数
-        
+        self.KiSumx2=0
+        for izhuang in self.ZhuangXY:
+            self.KiSumx2+=pow(izhuang['x']*1e-3,2)
+        self.SumAx2=self.KiSumx2*self.d*self.d*math.pi/4
+        self.Ib=self.CtB*pow(self.CtL,3)/12-self.SumAx2
+        self.rVV=float(self.lineEdit_15.text())*self.RhoNN+self.Cb*self.Ab
+        # self.rUV=
+
         self.WriteMsg()
     def GetInserValue(self,ay,**kwargs):
         if ay>4:
@@ -621,3 +625,8 @@ class Ui_2(object):
         self.textBrowser.append("根据《桩规》P135 表C.0.3-2 注第3条 承台底面以上侧向水平抗力系数C图像的面积 Fc=Cn*hn/2=%.2f*%.2f/2=%.2f\n"%(self.Cn,self.hn,self.Fc))
         self.textBrowser.append("根据《桩规》P135 表C.0.3-2 注第3条 对于底面的面积矩 Sc=Cn*hn^2/6=%.2f*%.2f^2/6=%.2f\n"%(self.Cn,self.hn,self.Sc))
         self.textBrowser.append("根据《桩规》P135 表C.0.3-2 注第3条 对于底面的惯性矩 Ic=Cn*hn^3/12=%.2f*%.2f^3/12=%.2f\n"%(self.Cn,self.hn,self.Ic))
+        self.textBrowser.append("ΣKi * x^2=%.5f\n"%(self.KiSumx2))
+        self.textBrowser.append("Ib=IF-ΣAKi * xi^2=%.5f m^4\n"%(self.Ib))
+        self.textBrowser.append("-------------------------------------------------------------------------\n")
+        self.textBrowser.append("发生单位竖向位移时竖向反力（附录表C.0.3-2第5项公式）γVV=%.5f\n"%(self.rVV))
+
