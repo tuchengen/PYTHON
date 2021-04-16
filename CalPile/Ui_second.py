@@ -529,7 +529,18 @@ class Ui_2(object):
         self.SumAx2=self.KiSumx2*self.d*self.d*math.pi/4
         self.Ib=self.CtB*pow(self.CtL,3)/12-self.SumAx2
         self.rVV=float(self.lineEdit_15.text())*self.RhoNN+self.Cb*self.Ab
-        # self.rUV=
+        self.rUV=self.etac*self.Cb*self.Ab
+        self.B0=self.CtB+1
+        self.rUU=float(self.lineEdit_15.text())*self.RhoHH+self.B0*self.Fc
+        self.rbU=-float(self.lineEdit_15.text())*self.RhoHH+self.B0*self.Sc
+        self.rUb=self.rbU
+        self.rbb=float(self.lineEdit_15.text())*self.RhoMM+self.RhoNN*self.KiSumx2+self.B0*self.Ic+self.Cb*self.Ic
+        self.NG=float(self.lineEdit_6.text())
+        self.H=float(self.lineEdit_7.text())
+        self.M=float(self.lineEdit_8.text())
+        self.V=self.NG/self.rVV
+        self.U=(self.rbb*self.H-self.rUb*self.M)/(self.rUU*self.rbb-self.rUb*self.rUb)-(self.NG*self.rUV*self.rbb)/(self.rVV*self.rUU*self.rbb-self.rVV*self.rUb*self.rUb)
+        self.b=(self.rUU*self.M-self.rUb*self.H)/(self.rUU*self.rbb-self.rUb*self.rUb)-(self.NG*self.rUV*self.rUb)/(self.rVV*self.rUU*self.rbb-self.rVV*self.rUb*self.rUb)
 
         self.WriteMsg()
     def GetInserValue(self,ay,**kwargs):
@@ -618,7 +629,7 @@ class Ui_2(object):
         self.textBrowser.append("发生单位水平位移时弯矩（附录表C.0.3-2第4项公式）ρMH=%.5f\n"%(self.RhoMH))
         self.textBrowser.append("发生单位转角时水平力（附录表C.0.3-2第4项公式）ρHM=%.5f\n"%(self.RhoHM))
         self.textBrowser.append("发生单位转角时弯矩（附录表C.0.3-2第4项公式）ρMM=%.5f\n"%(self.RhoMM))
-        self.textBrowser.append("-------------------------------------------------------------------------\n")
+        self.textBrowser.append("--------------------------------------------------------------------\n")
         self.textBrowser.append("根据式 C.0.2-4 承台侧面地基水平抗力系数（目前仅支持承台埋入在第一层土中）Cn=m0*h=%.2f*%.2f=%.2f\n"%(float(self.lineEdit_9.text()),self.h if self.h > 10 else 10,self.Cn))
         self.textBrowser.append("根据《桩规》 表5.2.5 承台效应系数（当前小程序在界面输入）ηc=%.5f\n"%(self.etac))
         self.textBrowser.append("根据式 C.0.2-5 承台底地基土竖向抗力系数Cb=m0*hn*ηc=%.2f*%.2f*%.2f=%.2f\n"%(float(self.lineEdit_9.text()),self.hn,self.etac,self.Cb))
@@ -627,6 +638,15 @@ class Ui_2(object):
         self.textBrowser.append("根据《桩规》P135 表C.0.3-2 注第3条 对于底面的惯性矩 Ic=Cn*hn^3/12=%.2f*%.2f^3/12=%.2f\n"%(self.Cn,self.hn,self.Ic))
         self.textBrowser.append("ΣKi * x^2=%.5f\n"%(self.KiSumx2))
         self.textBrowser.append("Ib=IF-ΣAKi * xi^2=%.5f m^4\n"%(self.Ib))
-        self.textBrowser.append("-------------------------------------------------------------------------\n")
+        self.textBrowser.append("--------------------------------------------------------------------\n")
         self.textBrowser.append("发生单位竖向位移时竖向反力（附录表C.0.3-2第5项公式）γVV=%.5f\n"%(self.rVV))
+        self.textBrowser.append("发生单位竖向位移时水平反力（附录表C.0.3-2第5项公式）γUV=%.5f\n"%(self.rUV))
+        self.textBrowser.append("发生单位水平位移时水平反力（附录表C.0.3-2第5项公式）γUU=%.5f\n"%(self.rUU))
+        self.textBrowser.append("发生单位水平位移时反弯矩（附录表C.0.3-2第5项公式）γβU=%.5f\n"%(self.rbU))
+        self.textBrowser.append("发生单位水转角时水平反力（附录表C.0.3-2第5项公式）γUβ=%.5f\n"%(self.rUb))
+        self.textBrowser.append("发生单位水转角时反弯矩（附录表C.0.3-2第5项公式）γββ=%.5f\n"%(self.rbb))
+        self.textBrowser.append("承台竖向位移（L）（附录表C.0.3-2第6项公式）V=%.5f\n"%(self.V))
+        self.textBrowser.append("承台水平位移（L）（附录表C.0.3-2第6项公式）U=%.5f\n"%(self.U))
+        self.textBrowser.append("承台转角（弧度）（附录表C.0.3-2第6项公式）β=%.5f\n"%(self.b))
+        self.textBrowser.append("--------------------------------------------------------------------\n")
 
