@@ -662,4 +662,4 @@ class Ui_2(object):
         self.textBrowser.append("桩号      x坐标       y坐标        轴向力      水平力      弯矩\n")
         for i in self.zhuangNeiLi:
             self.textBrowser.append("%d     %.5f        %.5f        %.5f        %.5f        %.5f \n"%(i["Index"],i['zuobiao']["x"],i['zuobiao']["y"],i["Noi"],i["Hoi"],i["Moi"]))
-
+        self.textBrowser.append("------------------------------------END-----------------------------\n")
