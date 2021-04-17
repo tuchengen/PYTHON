@@ -541,7 +541,17 @@ class Ui_2(object):
         self.V=self.NG/self.rVV
         self.U=(self.rbb*self.H-self.rUb*self.M)/(self.rUU*self.rbb-self.rUb*self.rUb)-(self.NG*self.rUV*self.rbb)/(self.rVV*self.rUU*self.rbb-self.rVV*self.rUb*self.rUb)
         self.b=(self.rUU*self.M-self.rUb*self.H)/(self.rUU*self.rbb-self.rUb*self.rUb)-(self.NG*self.rUV*self.rUb)/(self.rVV*self.rUU*self.rbb-self.rVV*self.rUb*self.rUb)
-
+        self.zhuangNeiLi=[]
+        indexZhuang=0
+        for Zhuang in self.ZhuangXY:
+            indexZhuang+=1
+            Neili={}
+            Neili["Index"]=indexZhuang
+            Neili["zuobiao"]=Zhuang
+            Neili["Noi"]=(self.V+self.b*Zhuang["x"])*self.RhoNN
+            Neili["Hoi"]=self.U*self.RhoHH-self.b*self.RhoHM
+            Neili["Moi"]=self.b*self.RhoMM-self.U*self.RhoMH
+            self.zhuangNeiLi.append(Neili)
         self.WriteMsg()
     def GetInserValue(self,ay,**kwargs):
         if ay>4:
@@ -649,4 +659,7 @@ class Ui_2(object):
         self.textBrowser.append("承台水平位移（L）（附录表C.0.3-2第6项公式）U=%.5f\n"%(self.U))
         self.textBrowser.append("承台转角（弧度）（附录表C.0.3-2第6项公式）β=%.5f\n"%(self.b))
         self.textBrowser.append("--------------------------------------------------------------------\n")
+        self.textBrowser.append("桩号      x坐标       y坐标        轴向力      水平力      弯矩\n")
+        for i in self.zhuangNeiLi:
+            self.textBrowser.append("%d     %.5f        %.5f        %.5f        %.5f        %.5f \n"%(i["Index"],i['zuobiao']["x"],i['zuobiao']["y"],i["Noi"],i["Hoi"],i["Moi"]))
 
