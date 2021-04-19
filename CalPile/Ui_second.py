@@ -663,7 +663,3 @@ class Ui_2(object):
         for i in self.zhuangNeiLi:
             self.textBrowser.append("%d     %.5f        %.5f        %.5f        %.5f        %.5f \n"%(i["Index"],i['zuobiao']["x"],i['zuobiao']["y"],i["Noi"],i["Hoi"],i["Moi"]))
         self.textBrowser.append("------------------------------------END-----------------------------\n")
-        self.textBrowser.append("------------------------------------END-----------------------------\n")
-        self.textBrowser.append("------------------------------------END-----------------------------\n")
-        self.textBrowser.append("------------------------------------END-----------------------------\n")
-        self.textBrowser.append("------------------------------------END-----------------------------\n")
