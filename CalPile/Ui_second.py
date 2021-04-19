@@ -401,7 +401,8 @@ class Ui_2(object):
         self.EGj=self.tools.GetGj(self.comboBox_2.currentText())['E']
         self.ae=self.EGj/self.Ehnt
         self.W0=math.pi*self.d*(self.d*self.d+2*(self.ae-1)*self.pg*self.d0*self.d0)/32
-        self.I0=self.W0*self.d0/2
+        # self.I0=self.W0*self.d0/2  临时算法
+        self.I0=math.pi*pow(self.d0, 4)/64
         self.EI=0.85*self.Ehnt*self.I0
         self.b0=0.0
         if self.d>1:
@@ -606,7 +607,7 @@ class Ui_2(object):
         self.textBrowser.append("桩身换算截面受拉边缘的截面模量Wo=π*%.2f*(%.2f*%.2f+2*(%.2f-1)*%.4f*%.2f*%.2f)/32=%.4f \n"%(self.d,self.d,self.d,self.ae,self.pg,self.d0,self.d0,self.W0))
         self.textBrowser.append("桩身换算截面惯性矩Io=%.2f*%.2f/2=%.5f\n"%(self.W0,self.d0,self.I0))
         self.textBrowser.append("桩身混凝土弹性模量Ec：%.5f\n"%(self.Ehnt))
-        self.textBrowser.append("桩身抗弯刚度EI=0.85*%.5f*%.5f\n"%(self.Ehnt,self.EI))
+        self.textBrowser.append("桩身抗弯刚度EI=0.85*%.5f*%.5f=%.5f\n"%(self.Ehnt,self.I0,self.EI))
         self.textBrowser.append("桩计算宽度Bo: %.5f\n"%(self.b0))
         self.textBrowser.append("水平变形系数α=pow(%.5f*%.5f/%.5f,0.2)= %.5f\n"%(self.m,self.b0,self.EI,self.a))
         if self.zhuangtype=='非岩石类土中' or self.zhuangtype=='基岩石表面':
