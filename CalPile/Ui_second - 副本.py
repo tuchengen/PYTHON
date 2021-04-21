@@ -346,7 +346,7 @@ class Ui_2(object):
         self.lineEdit_19.setText(_translate("Form", "15"))
         self.label_25.setText(_translate("Form", "承台效应系数ηc"))
         self.lineEdit_20.setText(_translate("Form", "1"))
-		self.lineEdit_21.setText(_translate("Form", "5"))
+        self.lineEdit_21.setText(_translate("Form", "5"))
         self.label_26.setText(_translate("Form", "承台长L（m）"))
         self.lineEdit_22.setText(_translate("Form", "5"))
         self.label_27.setText(_translate("Form", "承台宽B（m）"))

@@ -402,7 +402,7 @@ class Ui_2(object):
         self.ae=self.EGj/self.Ehnt
         self.W0=math.pi*self.d*(self.d*self.d+2*(self.ae-1)*self.pg*self.d0*self.d0)/32
         # self.I0=self.W0*self.d0/2  临时算法
-        self.I0=math.pi*pow(self.d0, 4)/64
+        self.I0=math.pi*pow(self.d, 4)/64
         self.EI=0.85*self.Ehnt*self.I0
         self.b0=0.0
         if self.d>1:
@@ -454,22 +454,22 @@ class Ui_2(object):
             self.A3B4A4B3=self.GetInserValue(self.ah,type="A3B4-A4B3")
             self.B2D4B4D2=self.GetInserValue(self.ah,type="B2D4-B4D2")
             self.A2B4A4B2=self.GetInserValue(self.ah,type="A2B4-A4B2")
-            self.delataHH=(self.B3D4B4D3+self.Kh*self.B2D4B4D2)/((self.A3B4A4B3+self.Kh*self.A2B4A4B2)*pow(self.a,3)*self.EI)
+            self.delataHH=1e-3*(self.B3D4B4D3+self.Kh*self.B2D4B4D2)/((self.A3B4A4B3+self.Kh*self.A2B4A4B2)*pow(self.a,3)*self.EI)
             self.A3D4A4D3=self.GetInserValue(self.ah,type="A3D4-A4D3")
             self.A2D4A4D2=self.GetInserValue(self.ah,type="A2D4-A4D2")
-            self.delataMH=(self.A3D4A4D3+self.Kh*self.A2D4A4D2)/((self.A3B4A4B3+self.Kh*self.A2B4A4B2)*pow(self.a,2)*self.EI)
+            self.delataMH=1e-3*(self.A3D4A4D3+self.Kh*self.A2D4A4D2)/((self.A3B4A4B3+self.Kh*self.A2B4A4B2)*pow(self.a,2)*self.EI)
             self.delataHM=self.delataMH
             self.A3C4A4C3=self.GetInserValue(self.ah,type="A3C4-A4C3")
             self.A2C4A4C2=self.GetInserValue(self.ah,type="A2C4-A4C2")
-            self.delataMM=(self.A3C4A4C3+self.Kh*self.A2C4A4C2)/((self.A3B4A4B3+self.Kh*self.A2B4A4B2)*pow(self.a,1)*self.EI)
+            self.delataMM=1e-3*(self.A3C4A4C3+self.Kh*self.A2C4A4C2)/((self.A3B4A4B3+self.Kh*self.A2B4A4B2)*pow(self.a,1)*self.EI)
         else:
             self.B2D1B1D2overA2B1A1B2=self.GetInserValue(self.ah,type="B2D1B1D2overA2B1A1B2")
             self.A2D1A1D2overA2B1A1B2=self.GetInserValue(self.ah,type="A2D1A1D2overA2B1A1B2")
             self.A2C1A1C2overA2B1A1B2=self.GetInserValue(self.ah,type="A2C1A1C2overA2B1A1B2")
-            self.delataHH=self.B2D1B1D2overA2B1A1B2/(pow(self.a,3)*self.EI)
-            self.delataMH=self.A2D1A1D2overA2B1A1B2/(pow(self.a,2)*self.EI)
+            self.delataHH=1e-3*self.B2D1B1D2overA2B1A1B2/(pow(self.a,3)*self.EI)
+            self.delataMH=1e-3*self.A2D1A1D2overA2B1A1B2/(pow(self.a,2)*self.EI)
             self.delataHM=self.delataMH
-            self.delataMM=self.A2C1A1C2overA2B1A1B2/(pow(self.a,1)*self.EI)
+            self.delataMM=1e-3*self.A2C1A1C2overA2B1A1B2/(pow(self.a,1)*self.EI)
         self.XiN=0.0
         if self.comboBox_4.currentText()== "端承型":
             self.XiN=1.0
@@ -487,24 +487,23 @@ class Ui_2(object):
             else:
                 self.phim=(float(self.lineEdit_17.text())*h1+float(self.lineEdit_18.text())*h2+float(self.lineEdit_19.text())*(self.h-h1-h2))/self.h
             A01=math.pi*pow(self.h*math.tan(self.phim/720*math.pi)+self.d/2,2)
-            self.s=math.sqrt(math.pow(float(self.tableWidget.item(0, 0).text())-float(self.tableWidget.item(1, 0).text()),2)+math.pow(float(self.tableWidget.item(0, 1).text())-float(self.tableWidget.item(1, 1).text()),2))
+            print("A01=",A01)
+            self.s=math.sqrt(math.pow(float(self.tableWidget.item(0, 0).text())-float(self.tableWidget.item(1, 0).text()),2)+math.pow(float(self.tableWidget.item(0, 1).text())-float(self.tableWidget.item(1, 1).text()),2))-0.5*self.d*1e3
             A02=math.pi/4*pow(self.s*1e-3,2)
+            print("self.s=",self.s)
+            print("A02=",A02)
             self.A0=min(A01, A02)
         C0A0=self.C0*self.A0
         EA=self.Ehnt*self.d*self.d*math.pi/4
         # print("C0A0",C0A0,"EA",EA)
-        self.RhoNN=1/(self.XiN*self.h/EA+1/C0A0)
+        self.RhoNN=1e3/(self.XiN*self.h/EA+1/C0A0)
         self.RhoHH=self.delataMM/(self.delataHH*self.delataMM-self.delataMH*self.delataMH)
         self.RhoMH=self.delataMH/(self.delataHH*self.delataMM-self.delataMH*self.delataMH)
         self.RhoHM=self.RhoMH
-        self.RhoMM=self.delataMH/(self.delataHH*self.delataMM-self.delataMH*self.delataMH)
-        self.Cn=0.0
-        if self.h<10.0:
-            self.Cn=m1*10
-        else:
-            self.Cn=m1*self.h
-        self.etac=float(self.lineEdit_20.text())
+        self.RhoMM=self.delataHH/(self.delataHH*self.delataMM-self.delataMH*self.delataMH)
         self.hn=float(self.lineEdit_16.text())
+        self.Cn=m1*self.hn*1e3
+        self.etac=float(self.lineEdit_20.text()) 
         self.Cb=m1*self.hn*self.etac
         self.CtL=float(self.lineEdit_21.text())
         self.CtB=float(self.lineEdit_22.text())
@@ -529,13 +528,13 @@ class Ui_2(object):
             self.KiSumx2+=pow(izhuang['x']*1e-3,2)
         self.SumAx2=self.KiSumx2*self.d*self.d*math.pi/4
         self.Ib=self.CtB*pow(self.CtL,3)/12-self.SumAx2
-        self.rVV=float(self.lineEdit_15.text())*self.RhoNN+self.Cb*self.Ab
-        self.rUV=self.etac*self.Cb*self.Ab
+        self.rVV=float(self.lineEdit_15.text())*self.RhoNN+self.Cb*self.Ab*1e3
+        self.rUV=self.etac*self.Cb*self.Ab*1e3
         self.B0=self.CtB+1
         self.rUU=float(self.lineEdit_15.text())*self.RhoHH+self.B0*self.Fc
-        self.rbU=-float(self.lineEdit_15.text())*self.RhoHH+self.B0*self.Sc
+        self.rbU=-float(self.lineEdit_15.text())*self.RhoMH+self.B0*self.Sc
         self.rUb=self.rbU
-        self.rbb=float(self.lineEdit_15.text())*self.RhoMM+self.RhoNN*self.KiSumx2+self.B0*self.Ic+self.Cb*self.Ic
+        self.rbb=float(self.lineEdit_15.text())*self.RhoMM+self.RhoNN*self.KiSumx2+self.B0*self.Ic+self.Cb*self.Ib
         self.NG=float(self.lineEdit_6.text())
         self.H=float(self.lineEdit_7.text())
         self.M=float(self.lineEdit_8.text())
@@ -549,7 +548,7 @@ class Ui_2(object):
             Neili={}
             Neili["Index"]=indexZhuang
             Neili["zuobiao"]=Zhuang
-            Neili["Noi"]=(self.V+self.b*Zhuang["x"])*self.RhoNN
+            Neili["Noi"]=(self.V+self.b*Zhuang["x"]*1e-3)*self.RhoNN
             Neili["Hoi"]=self.U*self.RhoHH-self.b*self.RhoHM
             Neili["Moi"]=self.b*self.RhoMM-self.U*self.RhoMH
             self.zhuangNeiLi.append(Neili)
@@ -615,20 +614,20 @@ class Ui_2(object):
             self.textBrowser.append("由《桩规》表C.0.3-4 得到A3B4-A4B3=%.5f\n"%(self.A3B4A4B3))
             self.textBrowser.append("由《桩规》表C.0.3-4 得到B2D4-B4D2=%.5f\n"%(self.B2D4B4D2))
             self.textBrowser.append("由《桩规》表C.0.3-4 得到A2B4-A4B2=%.5f\n"%(self.A2B4A4B2))
-            self.textBrowser.append("桩底支撑类型为%s 时候（附录表C.0.3-1第4项公式计算）δHH=%.5f\n"%(self.zhuangtype,self.delataHH))
+            self.textBrowser.append("桩底支撑类型为%s 时候（附录表C.0.3-1第4项公式计算）δHH=%.10f\n"%(self.zhuangtype,self.delataHH))
             self.textBrowser.append("由《桩规》表C.0.3-4 得到A3D4-A4D3=%.5f\n"%(self.A3D4A4D3))
             self.textBrowser.append("由《桩规》表C.0.3-4 得到A2D4-A4D2=%.5f\n"%(self.A2D4A4D2))
-            self.textBrowser.append("桩底支撑类型为%s 时候（附录表C.0.3-1第4项公式计算） δMH=δHM=%.5f\n"%(self.zhuangtype,self.delataHM))
+            self.textBrowser.append("桩底支撑类型为%s 时候（附录表C.0.3-1第4项公式计算） δMH=δHM=%.10f\n"%(self.zhuangtype,self.delataHM))
             self.textBrowser.append("由《桩规》表C.0.3-4 得到A3C4-A4C3=%.5f\n"%(self.A3C4A4C3))
             self.textBrowser.append("由《桩规》表C.0.3-4 得到A2C4-A4C2=%.5f\n"%(self.A2C4A4C2))
-            self.textBrowser.append("桩底支撑类型为%s 时候（附录表C.0.3-1第4项公式计算） δMM=%.5f\n"%(self.zhuangtype,self.delataMM))
+            self.textBrowser.append("桩底支撑类型为%s 时候（附录表C.0.3-1第4项公式计算） δMM=%.10f\n"%(self.zhuangtype,self.delataMM))
         else:
             self.textBrowser.append("由《桩规》表C.0.3-4 得到（B2D1-B1D2）/（A2B1-A1B2）=%.5f\n"%(self.B2D1B1D2overA2B1A1B2))
             self.textBrowser.append("由《桩规》表C.0.3-4 得到（A2D1-A1D2）/（A2B1-A1B2）=%.5f\n"%(self.A2D1A1D2overA2B1A1B2))
             self.textBrowser.append("由《桩规》表C.0.3-4 得到（A2C1-A1C2）/（A2B1-A1B2）=%.5f\n"%(self.A2C1A1C2overA2B1A1B2))
-            self.textBrowser.append("桩底支撑类型为%s 时候（附录表C.0.3-1注第2条公式）δHH=%.5f\n"%(self.zhuangtype,self.delataHH))
-            self.textBrowser.append("桩底支撑类型为%s 时候（附录表C.0.3-1注第2条公式） δMH=δHM=%.5f\n"%(self.zhuangtype,self.delataHM))
-            self.textBrowser.append("桩底支撑类型为%s 时候（附录表C.0.3-1注第2条公式） δMM=%.5f\n"%(self.zhuangtype,self.delataMM))
+            self.textBrowser.append("桩底支撑类型为%s 时候（附录表C.0.3-1注第2条公式）δHH=%.10f\n"%(self.zhuangtype,self.delataHH))
+            self.textBrowser.append("桩底支撑类型为%s 时候（附录表C.0.3-1注第2条公式） δMH=δHM=%.10\n"%(self.zhuangtype,self.delataHM))
+            self.textBrowser.append("桩底支撑类型为%s 时候（附录表C.0.3-1注第2条公式） δMM=%.10\n"%(self.zhuangtype,self.delataMM))
         self.textBrowser.append("桩身轴向压力传递系数ξN=%.1f\n"%(self.XiN))
         if self.comboBox_4.currentText()== "端承型":
             self.textBrowser.append("端承型桩按照（附录表C.0.3-2注第2条公式）A0=%.5f\n"%(self.A0))
