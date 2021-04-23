@@ -395,14 +395,14 @@ class Ui_2(object):
         self.Gjd=float(self.lineEdit_3.text()) 
         self.Gjn=float(self.lineEdit_4.text()) 
         self.safethink=float(self.lineEdit_5.text()) 
-        self.d0=self.d-2*self.safethink 
+        self.d0=self.d-2*self.safethink -2*8*1e-3  #扣掉两个箍筋直径
         self.pg=(pow(self.Gjd,2)*self.Gjn)/(pow((self.d)*1e3,2))
         self.Ehnt=self.tools.GetHnt(self.comboBox.currentText())['E']
         self.EGj=self.tools.GetGj(self.comboBox_2.currentText())['E']
         self.ae=self.EGj/self.Ehnt
         self.W0=math.pi*self.d*(self.d*self.d+2*(self.ae-1)*self.pg*self.d0*self.d0)/32
-        # self.I0=self.W0*self.d0/2  临时算法
-        self.I0=math.pi*pow(self.d, 4)/64
+        self.I0=self.W0*self.d/2  #《桩基规范用的是扣除保护层后的桩径》
+        # self.I0=math.pi*pow(self.d, 4)/64 临时算法
         self.EI=0.85*self.Ehnt*self.I0
         self.b0=0.0
         if self.d>1:
@@ -425,7 +425,7 @@ class Ui_2(object):
             if self.h<10:
                 self.C0=m1*10
             else:
-                self.C0=self.h*m1  
+                self.C0=self.h*m1 
         self.Kh=0.0
         self.zhuangtype=''
         if self.comboBox_3.currentText()== "非岩石类土中":
@@ -493,10 +493,11 @@ class Ui_2(object):
             print("self.s=",self.s)
             print("A02=",A02)
             self.A0=min(A01, A02)
-        C0A0=self.C0*self.A0
-        EA=self.Ehnt*self.d*self.d*math.pi/4
+        C0A0=self.C0*self.A0*1e3
+        EA=self.Ehnt*1e3*self.d*self.d*math.pi/4
+        print("EA=",EA)
         # print("C0A0",C0A0,"EA",EA)
-        self.RhoNN=1e3/(self.XiN*self.h/EA+1/C0A0)
+        self.RhoNN=1/(self.XiN*self.h/EA+1/C0A0)
         self.RhoHH=self.delataMM/(self.delataHH*self.delataMM-self.delataMH*self.delataMH)
         self.RhoMH=self.delataMH/(self.delataHH*self.delataMM-self.delataMH*self.delataMH)
         self.RhoHM=self.RhoMH
@@ -609,6 +610,7 @@ class Ui_2(object):
         self.textBrowser.append("桩身抗弯刚度EI=0.85*%.5f*%.5f=%.5f\n"%(self.Ehnt,self.I0,self.EI))
         self.textBrowser.append("桩计算宽度Bo: %.5f\n"%(self.b0))
         self.textBrowser.append("水平变形系数α=pow(%.5f*%.5f/%.5f,0.2)= %.5f\n"%(self.m,self.b0,self.EI,self.a))
+        self.textBrowser.append("由《桩规》表C.0.2-4 得到桩底面地基竖向抗力系数 C0=%.5f\n"%(self.C0))
         if self.zhuangtype=='非岩石类土中' or self.zhuangtype=='基岩石表面':
             self.textBrowser.append("由《桩规》表C.0.3-4 得到B3D4-B4D3=%.5f\n"%(self.B3D4B4D3))
             self.textBrowser.append("由《桩规》表C.0.3-4 得到A3B4-A4B3=%.5f\n"%(self.A3B4A4B3))
