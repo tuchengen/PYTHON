@@ -169,7 +169,7 @@
    </property>
    <item>
     <property name="text">
-     <string>HPB300</string>
+     <string>HRB400</string>
     </property>
    </item>
    <item>
@@ -253,7 +253,7 @@
    </property>
    <item>
     <property name="text">
-     <string>C15</string>
+     <string>C35</string>
     </property>
    </item>
    <item>
@@ -761,7 +761,7 @@
    </property>
    <item>
     <property name="text">
-     <string>端承型</string>
+     <string>摩擦型</string>
     </property>
    </item>
    <item>
@@ -924,6 +924,32 @@
    </property>
    <property name="text">
     <string>承台宽B（m）</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_23">
+   <property name="geometry">
+    <rect>
+     <x>610</x>
+     <y>270</y>
+     <width>43</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>0.4</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_28">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>270</y>
+     <width>131</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>承台底部摩擦系数μ</string>
    </property>
   </widget>
  </widget>

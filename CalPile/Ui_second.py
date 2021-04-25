@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'e:\Python\CalPile\second.ui'
+# Form implementation generated from reading ui file 'e:\PYTHON\CalPile\second.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.2
 #
@@ -242,6 +242,12 @@ class Ui_2(object):
         self.label_27 = QtWidgets.QLabel(Form)
         self.label_27.setGeometry(QtCore.QRect(676, 240, 78, 16))
         self.label_27.setObjectName("label_27")
+        self.lineEdit_23 = QtWidgets.QLineEdit(Form)
+        self.lineEdit_23.setGeometry(QtCore.QRect(610, 270, 43, 20))
+        self.lineEdit_23.setObjectName("lineEdit_23")
+        self.label_28 = QtWidgets.QLabel(Form)
+        self.label_28.setGeometry(QtCore.QRect(480, 270, 131, 20))
+        self.label_28.setObjectName("label_28")
 
         self.retranslateUi(Form)
         self.lineEdit_15.textChanged['QString'].connect(self.changgetable)
@@ -278,7 +284,7 @@ class Ui_2(object):
         self.pushButton.setText(_translate("Form", "计算"))
         self.lineEdit_2.setText(_translate("Form", "6"))
         self.label_5.setText(_translate("Form", "桩长（m）"))
-        self.comboBox_2.setItemText(0, _translate("Form", "HPB300"))
+        self.comboBox_2.setItemText(0, _translate("Form", "HRB400"))
         self.comboBox_2.setItemText(1, _translate("Form", "HRB335"))
         self.comboBox_2.setItemText(2, _translate("Form", "HRB400"))
         self.comboBox_2.setItemText(3, _translate("Form", "HRBF400"))
@@ -288,7 +294,7 @@ class Ui_2(object):
         self.label_4.setText(_translate("Form", "桩径（m）"))
         self.lineEdit.setText(_translate("Form", "1.0"))
         self.label_2.setText(_translate("Form", "混凝土"))
-        self.comboBox.setItemText(0, _translate("Form", "C15"))
+        self.comboBox.setItemText(0, _translate("Form", "C35"))
         self.comboBox.setItemText(1, _translate("Form", "C20"))
         self.comboBox.setItemText(2, _translate("Form", "C25"))
         self.comboBox.setItemText(3, _translate("Form", "C30"))
@@ -336,7 +342,7 @@ class Ui_2(object):
         self.label_20.setText(_translate("Form", "承台埋深（m）"))
         self.lineEdit_16.setText(_translate("Form", "1"))
         self.label_21.setText(_translate("Form", "桩类型"))
-        self.comboBox_4.setItemText(0, _translate("Form", "端承型"))
+        self.comboBox_4.setItemText(0, _translate("Form", "摩擦型"))
         self.comboBox_4.setItemText(1, _translate("Form", "摩擦型"))
         self.label_22.setText(_translate("Form", "第一层土内摩擦角"))
         self.label_23.setText(_translate("Form", "第二层土内摩擦角"))
@@ -350,6 +356,8 @@ class Ui_2(object):
         self.label_26.setText(_translate("Form", "承台长L（m）"))
         self.lineEdit_22.setText(_translate("Form", "5"))
         self.label_27.setText(_translate("Form", "承台宽B（m）"))
+        self.lineEdit_23.setText(_translate("Form", "0.4"))
+        self.label_28.setText(_translate("Form", "承台底部摩擦系数μ"))		
     def changgetable(self,string):
         if string=='':
             pass
