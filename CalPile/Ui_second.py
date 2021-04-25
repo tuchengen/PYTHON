@@ -496,16 +496,18 @@ class Ui_2(object):
                 self.phim=(float(self.lineEdit_17.text())*h1+float(self.lineEdit_18.text())*h2+float(self.lineEdit_19.text())*(self.h-h1-h2))/self.h
             A01=math.pi*pow(self.h*math.tan(self.phim/720*math.pi)+self.d/2,2)
             print("A01=",A01)
-            self.s=math.sqrt(math.pow(float(self.tableWidget.item(0, 0).text())-float(self.tableWidget.item(1, 0).text()),2)+math.pow(float(self.tableWidget.item(0, 1).text())-float(self.tableWidget.item(1, 1).text()),2))-0.5*self.d*1e3
+            self.s=math.sqrt(math.pow(float(self.tableWidget.item(0, 0).text())-float(self.tableWidget.item(1, 0).text()),2)+math.pow(float(self.tableWidget.item(0, 1).text())-float(self.tableWidget.item(1, 1).text()),2))
             A02=math.pi/4*pow(self.s*1e-3,2)
             print("self.s=",self.s)
             print("A02=",A02)
             self.A0=min(A01, A02)
+            print("self.A0=",self.A0)
         C0A0=self.C0*self.A0*1e3
         EA=self.Ehnt*1e3*self.d*self.d*math.pi/4
         print("EA=",EA)
         # print("C0A0",C0A0,"EA",EA)
         self.RhoNN=1/(self.XiN*self.h/EA+1/C0A0)
+        print("self.RhoNN=",self.RhoNN)
         self.RhoHH=self.delataMM/(self.delataHH*self.delataMM-self.delataMH*self.delataMH)
         self.RhoMH=self.delataMH/(self.delataHH*self.delataMM-self.delataMH*self.delataMH)
         self.RhoHM=self.RhoMH
@@ -538,7 +540,8 @@ class Ui_2(object):
         self.SumAx2=self.KiSumx2*self.d*self.d*math.pi/4
         self.Ib=self.CtB*pow(self.CtL,3)/12-self.SumAx2
         self.rVV=float(self.lineEdit_15.text())*self.RhoNN+self.Cb*self.Ab*1e3
-        self.rUV=self.etac*self.Cb*self.Ab*1e3
+        self.mu=float(self.lineEdit_10.text())
+        self.rUV=self.mu*self.Cb*self.Ab*1e3
         self.B0=self.CtB+1
         self.rUU=float(self.lineEdit_15.text())*self.RhoHH+self.B0*self.Fc
         self.rbU=-float(self.lineEdit_15.text())*self.RhoMH+self.B0*self.Sc
@@ -609,6 +612,7 @@ class Ui_2(object):
 
     def WriteMsg(self):
         self.textBrowser.setText("")
+        self.textBrowser.append("注意：①在计算Cb时候，承台效应系数按照0计算的 承台与承台底土摩擦系数也是按0算的")
         self.textBrowser.append("主要影响深度hm=2*（%.2f+1)=%.2f\n"%(self.d,self.hm))
         self.textBrowser.append("配筋率ρg=(π*%.2f*%.2f*%d)/(π*%.2f*%.2f)=%.5f \n"%(self.Gjd,self.Gjd,self.Gjn,self.d*1e3,self.d*1e3,self.pg))
         self.textBrowser.append("钢筋与混凝土弹性模量比=%f/%f=%.4f \n"%(self.EGj,self.Ehnt,self.ae))
@@ -665,9 +669,9 @@ class Ui_2(object):
         self.textBrowser.append("发生单位水平位移时反弯矩（附录表C.0.3-2第5项公式）γβU=%.5f\n"%(self.rbU))
         self.textBrowser.append("发生单位水转角时水平反力（附录表C.0.3-2第5项公式）γUβ=%.5f\n"%(self.rUb))
         self.textBrowser.append("发生单位水转角时反弯矩（附录表C.0.3-2第5项公式）γββ=%.5f\n"%(self.rbb))
-        self.textBrowser.append("承台竖向位移（L）（附录表C.0.3-2第6项公式）V=%.5f\n"%(self.V))
-        self.textBrowser.append("承台水平位移（L）（附录表C.0.3-2第6项公式）U=%.5f\n"%(self.U))
-        self.textBrowser.append("承台转角（弧度）（附录表C.0.3-2第6项公式）β=%.5f\n"%(self.b))
+        self.textBrowser.append("承台竖向位移（L）（附录表C.0.3-2第6项公式）V=%.7f\n"%(self.V))
+        self.textBrowser.append("承台水平位移（L）（附录表C.0.3-2第6项公式）U=%.7f\n"%(self.U))
+        self.textBrowser.append("承台转角（弧度）（附录表C.0.3-2第6项公式）β=%.7f\n"%(self.b))
         self.textBrowser.append("--------------------------------------------------------------------\n")
         self.textBrowser.append("桩号      x坐标       y坐标        轴向力      水平力      弯矩\n")
         for i in self.zhuangNeiLi:
