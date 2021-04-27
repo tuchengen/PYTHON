@@ -579,12 +579,13 @@ class Ui_2(object):
             self.A0=min(A01, A02)
             print("self.A0=",self.A0)
         C0A0=self.C0*self.A0*1e3
+        print("C0A0=%.5f*%.5f=%.5f"%(self.C0,self.A0,C0A0))
         EA=self.Ehnt*1e3*self.d*self.d*math.pi/4
         print("EA=",EA)
         # print("C0A0",C0A0,"EA",EA)
-        self.RhoNN=float(self.lineEdit_24.text())
-        # self.RhoNN=1/(self.XiN*self.h/EA+1/C0A0)
-        print("self.RhoNN=",self.RhoNN)
+        # self.RhoNN=float(self.lineEdit_24.text())
+        self.RhoNN=1/(self.XiN*self.h/EA+1/C0A0)
+        print("self.RhoNN=1/(%.5f*%.5f/%.5f+1/%.5f)"%(self.XiN,self.h,EA,C0A0))
         self.RhoHH=self.delataMM/(self.delataHH*self.delataMM-self.delataMH*self.delataMH)
         self.RhoMH=self.delataMH/(self.delataHH*self.delataMM-self.delataMH*self.delataMH)
         self.RhoHM=self.RhoMH
