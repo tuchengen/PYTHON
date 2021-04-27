@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'e:\PYTHON\CalPile\second.ui'
+# Form implementation generated from reading ui file 'd:\PYTHON\CalPile\second.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.2
 #
@@ -278,12 +278,6 @@ class Ui_2(object):
         self.label_28 = QtWidgets.QLabel(Form)
         self.label_28.setGeometry(QtCore.QRect(480, 270, 131, 20))
         self.label_28.setObjectName("label_28")
-        self.lineEdit_24 = QtWidgets.QLineEdit(Form)
-        self.lineEdit_24.setGeometry(QtCore.QRect(610, 320, 141, 20))
-        self.lineEdit_24.setObjectName("lineEdit_24")
-        self.label_29 = QtWidgets.QLabel(Form)
-        self.label_29.setGeometry(QtCore.QRect(480, 320, 131, 20))
-        self.label_29.setObjectName("label_29")
 
         self.retranslateUi(Form)
         self.lineEdit_15.textChanged['QString'].connect(self.changgetable)
@@ -425,15 +419,13 @@ class Ui_2(object):
         self.lineEdit_18.setText(_translate("Form", "15"))
         self.lineEdit_19.setText(_translate("Form", "15"))
         self.label_25.setText(_translate("Form", "承台效应系数ηc"))
-        self.lineEdit_20.setText(_translate("Form", "1"))
+        self.lineEdit_20.setText(_translate("Form", "0"))
         self.lineEdit_21.setText(_translate("Form", "5"))
         self.label_26.setText(_translate("Form", "承台长L（m）"))
         self.lineEdit_22.setText(_translate("Form", "5"))
         self.label_27.setText(_translate("Form", "承台宽B（m）"))
-        self.lineEdit_23.setText(_translate("Form", "0.4"))
+        self.lineEdit_23.setText(_translate("Form", "0"))
         self.label_28.setText(_translate("Form", "承台底部摩擦系数μ"))
-        self.lineEdit_24.setText(_translate("Form", "703990"))
-        self.label_29.setText(_translate("Form", "ρNN临时值"))
     def changgetable(self,string):
         if string=='':
             pass
@@ -579,13 +571,11 @@ class Ui_2(object):
             self.A0=min(A01, A02)
             print("self.A0=",self.A0)
         C0A0=self.C0*self.A0*1e3
-        print("C0A0=%.5f*%.5f=%.5f"%(self.C0,self.A0,C0A0))
         EA=self.Ehnt*1e3*self.d*self.d*math.pi/4
         print("EA=",EA)
         # print("C0A0",C0A0,"EA",EA)
         # self.RhoNN=float(self.lineEdit_24.text())
-        self.RhoNN=1/(self.XiN*self.h/EA+1/C0A0)
-        print("self.RhoNN=1/(%.5f*%.5f/%.5f+1/%.5f)"%(self.XiN,self.h,EA,C0A0))
+        self.RhoNN=1/(0.85*self.XiN*self.h/EA+1/C0A0)#公司软件乘以刚度折合系数0.85 规范中没有乘这个数
         self.RhoHH=self.delataMM/(self.delataHH*self.delataMM-self.delataMH*self.delataMH)
         self.RhoMH=self.delataMH/(self.delataHH*self.delataMM-self.delataMH*self.delataMH)
         self.RhoHM=self.RhoMH

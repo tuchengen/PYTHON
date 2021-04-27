@@ -946,7 +946,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>1</string>
+    <string>0</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="lineEdit_21">
@@ -1011,7 +1011,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>0.4</string>
+    <string>0</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_28">
@@ -1025,32 +1025,6 @@
    </property>
    <property name="text">
     <string>承台底部摩擦系数μ</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEdit_24">
-   <property name="geometry">
-    <rect>
-     <x>610</x>
-     <y>320</y>
-     <width>141</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>703990</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_29">
-   <property name="geometry">
-    <rect>
-     <x>480</x>
-     <y>320</y>
-     <width>131</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>ρNN临时值</string>
    </property>
   </widget>
  </widget>
