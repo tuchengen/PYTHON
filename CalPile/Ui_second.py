@@ -509,7 +509,7 @@ class Ui_2(object):
             if self.h*self.a<2.5:
                 self.Kh=self.C0*self.I0/(self.a*self.EI)
             else:
-                self.Kh=self.C0*self.I0/(self.a*self.EI)
+                self.Kh=0.0
         elif self.comboBox_3.currentText()== "基岩石表面":
             self.zhuangtype='基岩石表面'
             if self.h*self.a<3.5:
