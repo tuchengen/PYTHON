@@ -1,0 +1,13 @@
+<RCC>
+  <qresource prefix="icon">
+    <file>logo.ico</file>
+  </qresource>
+  <qresource prefix="product">
+    <file>logo.ico</file>
+  </qresource>
+  <qresource prefix="SingleRe">
+    <file>LOGO_Big.png</file>
+    <file>SingleRe.png</file>
+    <file>MuiltRe.png</file>
+  </qresource>
+</RCC>

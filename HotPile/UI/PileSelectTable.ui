@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1210</width>
+    <height>896</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QPushButton" name="compareButton">
+   <property name="geometry">
+    <rect>
+     <x>1120</x>
+     <y>250</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>对比</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="ExportButton">
+   <property name="geometry">
+    <rect>
+     <x>1020</x>
+     <y>250</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>导出</string>
+   </property>
+  </widget>
+  <widget class="QTableWidget" name="tableWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>0</y>
+     <width>1181</width>
+     <height>231</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <attribute name="horizontalHeaderCascadingSectionResizes">
+    <bool>true</bool>
+   </attribute>
+   <attribute name="horizontalHeaderMinimumSectionSize">
+    <number>50</number>
+   </attribute>
+   <row>
+    <property name="text">
+     <string>新建行</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>新建行</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>新建行</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>新建行</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>新建行</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>新建行</string>
+    </property>
+   </row>
+   <column>
+    <property name="text">
+     <string>勾选</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>序号</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>产品名称</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>产品代号</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>截面形状</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>厚度</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>应用方式</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>弯曲情况</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>传热能力</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>热流密度</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>重量</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>液塞</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>孔数</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>操作</string>
+    </property>
+   </column>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>460</y>
+     <width>1001</width>
+     <height>431</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="../res/picres.qrc">:/SingleRe/SingleRe.png</pixmap>
+   </property>
+  </widget>
+ </widget>
+ <resources>
+  <include location="../res/picres.qrc"/>
+ </resources>
+ <connections/>
+</ui>
