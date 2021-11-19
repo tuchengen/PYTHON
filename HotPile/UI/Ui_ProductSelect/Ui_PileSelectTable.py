@@ -33,60 +33,8 @@ class Ui_PileSelectTable(object):
         self.myTable=MyTable.TableDemo(Form)
         self.myTable.setGeometry(QtCore.QRect(0, 20*gl.h, 1200*gl.w, 480*gl.h))
         self.myTable.mySignal.connect(self.MakeYeSaiTable)
-        # self.tableWidget = QtWidgets.QTableWidget(Form)
-        # self.tableWidget.setGeometry(QtCore.QRect(0, 20, 1200, 480))
-        # self.tableWidget.horizontalHeader().setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
-        # self.tableWidget.verticalHeader().setVisible(False) 
-        # sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
-        # sizePolicy.setHorizontalStretch(0)
-        # sizePolicy.setVerticalStretch(0)
-        # sizePolicy.setHeightForWidth(self.tableWidget.sizePolicy().hasHeightForWidth())
-        # self.tableWidget.setSizePolicy(sizePolicy)
-        # self.tableWidget.setObjectName("tableWidget")
-        # self.tableWidget.setColumnCount(14)
-        # self.tableWidget.setRowCount(0)
-        # item = QtWidgets.QTableWidgetItem()
-        # self.tableWidget.setHorizontalHeaderItem(0, item)
-        # item = QtWidgets.QTableWidgetItem()
-        # self.tableWidget.setHorizontalHeaderItem(1, item)
-        # item = QtWidgets.QTableWidgetItem()
-        # self.tableWidget.setHorizontalHeaderItem(2, item)
-        # item = QtWidgets.QTableWidgetItem()
-        # self.tableWidget.setHorizontalHeaderItem(3, item)
-        # item = QtWidgets.QTableWidgetItem()
-        # self.tableWidget.setHorizontalHeaderItem(4, item)
-        # item = QtWidgets.QTableWidgetItem()
-        # self.tableWidget.setHorizontalHeaderItem(5, item)
-        # item = QtWidgets.QTableWidgetItem()
-        # self.tableWidget.setHorizontalHeaderItem(6, item)
-        # item = QtWidgets.QTableWidgetItem()
-        # self.tableWidget.setHorizontalHeaderItem(7, item)
-        # item = QtWidgets.QTableWidgetItem()
-        # self.tableWidget.setHorizontalHeaderItem(8, item)
-        # item = QtWidgets.QTableWidgetItem()
-        # self.tableWidget.setHorizontalHeaderItem(9, item)
-        # item = QtWidgets.QTableWidgetItem()
-        # self.tableWidget.setHorizontalHeaderItem(10, item)
-        # item = QtWidgets.QTableWidgetItem()
-        # self.tableWidget.setHorizontalHeaderItem(11, item)
-        # item = QtWidgets.QTableWidgetItem()
-        # self.tableWidget.setHorizontalHeaderItem(12, item)
-        # item = QtWidgets.QTableWidgetItem()
-        # self.tableWidget.setHorizontalHeaderItem(13, item)
-        # self.tableWidget.horizontalHeader().setCascadingSectionResizes(True)
-        # self.tableWidget.horizontalHeader().setMinimumSectionSize(50)
         self.compareButton.clicked.connect(lambda:self.DrowCompare())
         self.ExportButton.clicked.connect(lambda:self.Export())
-
-        # self.pp=LineStack.ChartView(Form)
-        # self.pp.setGeometry(QtCore.QRect(0, 450, 1100, 436))
-        # # self.pp.setObjectName("label")
-        # self.pp.show()
-        # self.singleRepic = QtWidgets.QLabel(Form)
-        # self.singleRepic.setGeometry(QtCore.QRect(0, 350, 1181, 500))
-        # self.singleRepic.setText("")
-        # self.singleRepic.setPixmap(QtGui.QPixmap(":/SingleRe/SingleRe.png"))
-        # self.singleRepic.setObjectName("label")
         self.ReRanpic = QtWidgets.QLabel(self)
         self.ReRanpic.setGeometry(QtCore.QRect(0, 530*gl.h, 1100*gl.w, 400*gl.h))
         self.ReRanpic.setText("")
@@ -101,34 +49,6 @@ class Ui_PileSelectTable(object):
         Form.setWindowTitle(_translate("Form", "Form"))
         self.compareButton.setText(_translate("Form", "对比"))
         self.ExportButton.setText(_translate("Form", "导出"))
-        # item = self.tableWidget.horizontalHeaderItem(0)
-        # item.setText(_translate("Form", "勾选"))
-        # item = self.tableWidget.horizontalHeaderItem(1)
-        # item.setText(_translate("Form", "序号"))
-        # item = self.tableWidget.horizontalHeaderItem(2)
-        # item.setText(_translate("Form", "产品名称"))
-        # item = self.tableWidget.horizontalHeaderItem(3)
-        # item.setText(_translate("Form", "产品代号"))
-        # item = self.tableWidget.horizontalHeaderItem(4)
-        # item.setText(_translate("Form", "截面形状"))
-        # item = self.tableWidget.horizontalHeaderItem(5)
-        # item.setText(_translate("Form", "厚度"))
-        # item = self.tableWidget.horizontalHeaderItem(6)
-        # item.setText(_translate("Form", "应用方式"))
-        # item = self.tableWidget.horizontalHeaderItem(7)
-        # item.setText(_translate("Form", "弯曲情况"))
-        # item = self.tableWidget.horizontalHeaderItem(8)
-        # item.setText(_translate("Form", "传热能力"))
-        # item = self.tableWidget.horizontalHeaderItem(9)
-        # item.setText(_translate("Form", "热流密度"))
-        # item = self.tableWidget.horizontalHeaderItem(10)
-        # item.setText(_translate("Form", "重量"))
-        # item = self.tableWidget.horizontalHeaderItem(11)
-        # item.setText(_translate("Form", "液塞"))
-        # item = self.tableWidget.horizontalHeaderItem(12)
-        # item.setText(_translate("Form", "孔数"))
-        # item = self.tableWidget.horizontalHeaderItem(13)
-        # item.setText(_translate("Form", "操作"))
         self.productlist=self.InitPileSelectTableData()
         self.Refreash(self.productlist)
 
@@ -199,146 +119,6 @@ class Ui_PileSelectTable(object):
     def Refreash(self,oData):
         self.oData=oData
         self.myTable.setTableContents(self.oData,self.shaixuanInfo)
-        # irow=len(oData)
-        # self.tableWidget.setRowCount(irow)
-        # for row_number, row_data in enumerate(oData):
-        #     self.tableWidget.setCellWidget(row_number, 0, self.CheckBoxForRow(row_number))
-        #     self.tableWidget.setItem(row_number, 1, QtWidgets.QTableWidgetItem(str(row_number+1)))
-        #     self.tableWidget.setItem(row_number, 2, QtWidgets.QTableWidgetItem(str(row_data["name"])))
-        #     self.tableWidget.setItem(row_number, 3, QtWidgets.QTableWidgetItem(str(row_data["code"])))
-        #     self.tableWidget.setItem(row_number, 4, QtWidgets.QTableWidgetItem(str(row_data["ishape"])))
-        #     self.tableWidget.setItem(row_number, 5, QtWidgets.QTableWidgetItem(str(row_data["thickness"])))
-        #     self.tableWidget.setItem(row_number, 6, QtWidgets.QTableWidgetItem(str(row_data["apptyle"])))
-        #     self.tableWidget.setItem(row_number, 7, QtWidgets.QTableWidgetItem(str(row_data["wanqu"])))
-        #     self.tableWidget.setItem(row_number, 8, QtWidgets.QTableWidgetItem(str(row_data["prtkong20"])))
-        #     self.tableWidget.setItem(row_number, 9, QtWidgets.QTableWidgetItem(str(row_data["midulinjie20"])))
-        #     self.tableWidget.setItem(row_number, 10, QtWidgets.QTableWidgetItem(self.GetWeight(row_data["midulinjie20"])))
-        #     self.tableWidget.setItem(row_number, 11, QtWidgets.QTableWidgetItem(self.CalYeSai(self.shaixuanInfo,row_data["id"])))
-        #     self.tableWidget.setItem(row_number, 12, QtWidgets.QTableWidgetItem(str(row_data["kongnum"])))
-        #     self.tableWidget.setCellWidget(row_number, 13, self.buttonForRow(row_data["id"]))
-
-    #复选框
-    # def CheckBoxForRow(self,num):
-    #     addBtn=CheckBoxInTable.MyCheckBox()
-    #     addBtn.getidfromfather(num)
-    #     addBtn.mySignal.connect(self.getcheckboxSignal)
-    #     return addBtn
-        # # widget=QtWidgets.QWidget()
-        # addBtn = QtWidgets.QCheckBox('')
-        # addBtn.setStyleSheet(''' text-align : center;
-        #                           height : 30px;
-        #                           border-style: outset;
-        #                           font : 13px; ''')
-        # addBtn.setChecked(True)
-        # addBtn.clicked.connect(lambda: addBtn.setCheckState(QtCore.Qt.Unchecked))
-
-        # # hLayout = QtWidgets.QHBoxLayout()
-        # # # hLayout.addWidget(updateBtn)
-        # # hLayout.addWidget(addBtn)
-        # # hLayout.setContentsMargins(5,2,5,2)
-        # # widget.setLayout(hLayout)
-
-
-        # frame = QFrame()
-        #             fLayout = QHBoxLayout()
-        #             cb = QCheckBox()
-        #             cb.isChecked()
-        #             fLayout.addStretch()
-        #             fLayout.addWidget(cb)
-        #             fLayout.addStretch()
-        #             frame.setLayout(fLayout)
-        #             self.table2.setCellWidget(r, c, frame)
-        #             self.cbs.append(cb)
-
-        # return addBtn
-    # def getcheckboxSignal(self,str1,str2):
-    #     print(str1,str2)
-
-     #查看液塞按钮
-    # def buttonForRow(self,id):
-    #     widget=QtWidgets.QWidget()
-    #     addBtn = QtWidgets.QPushButton('查看液塞')
-    #     addBtn.setStyleSheet(''' text-align : center;
-    #                               background-color : NavajoWhite;
-    #                               height : 30px;
-    #                               border-style: outset;
-    #                               font : 13px; ''')
-
-    #     addBtn.clicked.connect(lambda: self.lookYeSai(id))
-    #     hLayout = QtWidgets.QHBoxLayout()
-    #     # hLayout.addWidget(updateBtn)
-    #     hLayout.addWidget(addBtn)
-    #     hLayout.setContentsMargins(5,2,5,2)
-    #     widget.setLayout(hLayout)
-    #     return widget
-
-    #查看液塞按钮
-    # def lookYeSai(self,id):
-    #     if hasattr(self,"ChartView"):
-    #         self.ChartView.close()
-    #     else:
-    #         pass
-    #     if hasattr(self,"ReRanpic"):
-    #         self.ReRanpic.close()
-    #     else:
-    #         pass
-    #     if hasattr(self,"settemp"):
-    #         self.settemp.close()
-    #     else:
-    #         pass
-    #     if hasattr(self,"settemplabel"):
-    #         self.settemplabel.close()
-    #     else:
-    #         pass
-    #     my = Ui_setbox.MyDialog(self)
-    #     my.SetProductID(id)
-    #     # 在主窗口中连接信号和槽
-    #     my.mySignal.connect(self.getDialogSignal)
-    #     my.exec_()
-
-    # def getDialogSignal(self, connect):
-    #     dic=eval(connect)
-    #     CalYeSaiData={}
-    #     if len(self.shaixuanInfo)==0:
-    #         #提示 为点击筛选
-    #         MsgBox=QtWidgets.QMessageBox(QtWidgets.QMessageBox.Warning, '提示', '还未进行筛选操作!')
-    #         MsgBox.setGeometry(QtCore.QRect(1000, 500, 500, 500))
-    #         MsgBox.exec_()
-    #         pass
-    #     else:
-    #         dicshaixuanInfo=eval(self.shaixuanInfo)
-    #         CalYeSaiData['hightemp']=dicshaixuanInfo['hightemp']#最高工作温度
-    #         CalYeSaiData['lowtemp']=dicshaixuanInfo['lowtemp']#最低工作温度
-    #         CalYeSaiData['edingtemp']=dicshaixuanInfo['edingtemp']#额定工作温度
-    #         CalYeSaiData['iempjiange']=dic['iempjiange']#温度间隔
-    #         CalYeSaiData['chongzhuangtemp']=dic['tempeding']#额定充装温度
-    #         CalYeSaiData['chongzhuangtempup']=dic['tempup']#充装温度上限
-    #         CalYeSaiData['chongzhuangtempdn']=dic['tempdn']#充装温度下线
-    #         CalYeSaiData['productid']=dic['productid']#产品id
-    #         # a = list(range(float(CalYeSaiData['hightemp']), float(CalYeSaiData['lowtemp']), float(CalYeSaiData['iempjiange'])))
-    #         Rowtitle = list(range(int(float(CalYeSaiData['lowtemp'])), int(float(CalYeSaiData['hightemp'])), int(float(CalYeSaiData['iempjiange']))))
-    #         #range 是开区间 需要补齐最后一个数
-    #         Rowtitle.append(int(float(CalYeSaiData['hightemp'])))
-    #         if int(float(CalYeSaiData['edingtemp'])) in Rowtitle:
-    #             pass
-    #         else:
-    #             Rowtitle.append(int(float(CalYeSaiData['edingtemp'])))
-    #         Rowtitle.sort()
-    #         coltitle=list()
-    #         coltitle.append(float(CalYeSaiData['chongzhuangtempdn']))
-    #         coltitle.append(float(CalYeSaiData['chongzhuangtemp']))
-    #         coltitle.append(float(CalYeSaiData['chongzhuangtempup']))
-    #         #  
-    #         if hasattr(self,"yesaitable"):
-    #             self.yesaitable.close()
-    #         else:
-    #             pass
-    #         self.yesaitable=YeSaiTable.YeSaiTable(self)
-    #         self.yesaitable.setupUi(self)
-    #         # self.yesaitable.setTableInfo(Rowtitle,coltitle)
-    #         #填充表格内容
-    #         self.FillTableInFo(self.yesaitable,Rowtitle,coltitle,int(float(CalYeSaiData['productid'])))
-    #         self.yesaitable.show()
 
     #对比按钮
     def DrowCompare(self):
@@ -347,10 +127,6 @@ class Ui_PileSelectTable(object):
             self.yesaitable.close()
         else:
             pass
-        # if hasattr(self,"ChartView2"):
-        #     self.ChartView2.close()
-        # else:
-        #     pass
         if hasattr(self,"ReRanpic"):
             self.ReRanpic.close()
         else:
@@ -364,25 +140,6 @@ class Ui_PileSelectTable(object):
         self.ChartView.SetData(tempData)
         self.ChartView.DrawChart()
         self.ChartView.show()
-
-        
-        # # if hasattr(self,"settemplabel"):
-        # #     pass
-        # # else:
-        # #     self.settemplabel = QtWidgets.QLabel(_Form)
-        # # if hasattr(self,"settemp"):
-        # #     pass
-        # # else:
-        # #     self.settemp = QtWidgets.QLineEdit(_Form)
-        # # self.settemplabel.setGeometry(QtCore.QRect(0, 520, 100, 20))
-        # # self.settemplabel.setObjectName("settemplabel")
-        # # self.settemp.setGeometry(QtCore.QRect(100, 520, 100, 20))
-        # # self.settemp.setObjectName("tempup")
-        # _translate = QtCore.QCoreApplication.translate
-        # # self.settemplabel.setText(_translate("_Form", "充装温度："))
-        # # self.settemp.setText(_translate("_Form", "10"))
-        # # self.settemplabel.show()
-        # # self.settemp.show()
     
     #刷新热源图片
     def freshenReRanPic(self,num):
@@ -390,22 +147,10 @@ class Ui_PileSelectTable(object):
             self.ChartView.close()
         else:
             pass
-        # if hasattr(self,"settemp"):
-        #     self.settemp.close()
-        # else:
-        #     pass
-        # if hasattr(self,"settemplabel"):
-        #     self.settemplabel.close()
-        # else:
-        #     pass
         if hasattr(self,"yesaitable"):
             self.yesaitable.close()
         else:
             pass
-        # if hasattr(self,"ChartView2"):
-        #     self.ChartView2.close()
-        # else:
-        #     pass
         if hasattr(self,"ReRanpic"):
             self.ReRanpic.close()
         else:
@@ -415,7 +160,6 @@ class Ui_PileSelectTable(object):
         self.ReRanpic.setText("")
         if num==1:
             pixmap=QtGui.QPixmap(":/SingleRe/SingleRe.png").scaled(1100*gl.w,400*gl.h)
-            # pixmap.scaled(550*gl.w,250*gl.h,QtCore.Qt.IgnoreAspectRatio,QtCore.Qt.SmoothTransformation)
             self.ReRanpic.setPixmap(pixmap)
         else:
             pixmap=QtGui.QPixmap(":/SingleRe/MuiltRe.png").scaled(1100*gl.w,400*gl.h)
@@ -441,10 +185,6 @@ class Ui_PileSelectTable(object):
             return str(0.00)
         else:
             dicshaixuanInfo=eval(self.shaixuanInfo)
-            # lis=[]
-            # for item in dicshaixuanInfo["tabledata"]:
-            #     lis.append(item["juli"])
-            # rongcha=float(dicshaixuanInfo["rongcha"])
             l=self.GetL()
             return str(vapordensity*l)
     #计算产品表格中的液塞
@@ -539,10 +279,6 @@ class Ui_PileSelectTable(object):
                 self.yesaitable.close()
         else:
             pass
-        # if hasattr(self,"ChartView2"):
-        #         self.ChartView2.close()
-        # else:
-        #     pass
         self.yesaitable=YeSaiTable.YeSaiTable(self)
         self.yesaitable.setupUi(self)
         # self.yesaitable.setTableInfo(Rowtitle,coltitle)
@@ -553,12 +289,6 @@ class Ui_PileSelectTable(object):
             width=1200*gl.w
         self.yesaitable.setGeometry(QtCore.QRect(0, 560*gl.h, width*gl.w, 400*gl.h))
         self.yesaitable.show()
-        # self.ChartView2=LineStack.ChartView(self)
-        # tempData=self.MakeChartData(CalYeSaiData,Rowtitle,coltitle)
-        # self.ChartView2.SetData(tempData)
-        # self.ChartView2.DrawChart()
-        # self.ChartView2.setGeometry(QtCore.QRect(236, 560, 980, 400))
-        # self.ChartView2.show()
     
     def MakeChartData(self,CalYeSaiData,Rowtitle,coltitle):
         tempData={}
@@ -640,26 +370,3 @@ class Ui_PileSelectTable(object):
         tempData["YRangeMax"]=math.ceil(max(AllYesaiValue))
         tempData["YRangeMin"]=math.floor(min(AllYesaiValue))
         return tempData
-        # for i in coltitle:
-        #         item=[]
-        #         item.append(str(i)+"℃")
-        #         # item[str(i)+"℃"]=[]
-        #         lis=[]
-        #         for j in Rowtitle:
-        #             value=self.GetYaSaiTableInfo(j,i,int(float(CalYeSaiData['productid'])))
-        #             if "失效" in value:
-        #                 #未完成 
-        #                 lis.append(-999)
-        #                 AllYesaiValue.append(0)
-        #             else:
-        #                 lis.append(float(value))
-        #                 AllYesaiValue.append(float(value))
-        #         item.append(lis)
-        #         tempData["dataTable"].append(item)
-        
-
-        
-
-        
-    
-  

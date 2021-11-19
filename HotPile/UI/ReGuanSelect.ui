@@ -354,7 +354,7 @@
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="totalgonglv">
+  <widget class="QLabel" name="totalgonglv_high">
    <property name="geometry">
     <rect>
      <x>150</x>

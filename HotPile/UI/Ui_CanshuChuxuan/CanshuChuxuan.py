@@ -9,13 +9,14 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QWidget,QDialog
-import gl 
-
+from PyQt5.QtWidgets import QAbstractItemDelegate, QWidget, QDialog
+import gl
+from Tools import ErYuanZhuangZhi
+from PyQt5.QtGui import QIntValidator,QDoubleValidator,QRegExpValidator
 
 
 class Ui_CanshuChuxuan(QWidget):
-    def __init__(self, parent = None):
+    def __init__(self, parent=None):
         super(QWidget, self).__init__(parent)
         self.setupUi()
 
@@ -118,7 +119,6 @@ class Ui_CanshuChuxuan(QWidget):
         self.tableWidget.hide()
         # self.tableWidget.setColumnCount(0)
         # self.tableWidget.setRowCount(0)
-
         self.retranslateUi(self)
         self.InitData()
         self.BindingEvents()
@@ -148,96 +148,132 @@ class Ui_CanshuChuxuan(QWidget):
         self.label_19.setText(_translate("Form", "冷凝阻塞段温度"))
         self.label_20.setText(_translate("Form", "℃"))
         self.pushButton.setText(_translate("Form", "计算"))
-    
+
     def InitData(self):
-        self.data={
-            "Zhengfa_DaoTong":20,
-            "ChuqiStart_DaoTong":20,
-            "ChuqiJiange_DaoTong":5,
-            "ChuqiEnd_DaoTong":40,
-            "Zhengfa_ZuSei":20,
-            "ChuqiStart_ZuSei":20,
-            "ChuqiJiange_ZuSei":5,
-            "ChuqiEnd_ZuSei":40,
-            "LengNing_ZuSei":20,
+        self.data = {
+            "Zhengfa_DaoTong": 20,
+            "ChuqiStart_DaoTong": 20,
+            "ChuqiJiange_DaoTong": 5,
+            "ChuqiEnd_DaoTong": 40,
+            "Zhengfa_ZuSei": 20,
+            "ChuqiStart_ZuSei": 20,
+            "ChuqiJiange_ZuSei": 5,
+            "ChuqiEnd_ZuSei": 40,
+            "LengNing_ZuSei": 20,
         }
         self.Zhengfa_DaoTong.setText(str(self.data["Zhengfa_DaoTong"]))
+        self.Zhengfa_DaoTong.setValidator(QDoubleValidator(-1000,1000,2))
         self.ChuqiStart_DaoTong.setText(str(self.data["ChuqiStart_DaoTong"]))
+        self.ChuqiStart_DaoTong.setValidator(QDoubleValidator(-1000,1000,2))
         self.ChuqiJiange_DaoTong.setText(str(self.data["ChuqiJiange_DaoTong"]))
+        self.ChuqiJiange_DaoTong.setValidator(QDoubleValidator(0,100,2))
         self.ChuqiEnd_DaoTong.setText(str(self.data["ChuqiEnd_DaoTong"]))
+        self.ChuqiEnd_DaoTong.setValidator(QDoubleValidator(-1000,1000,2))
         self.Zhengfa_ZuSei.setText(str(self.data["Zhengfa_ZuSei"]))
+        self.Zhengfa_ZuSei.setValidator(QDoubleValidator(-1000,1000,2))
         self.ChuqiStart_ZuSei.setText(str(self.data["ChuqiStart_ZuSei"]))
+        self.ChuqiStart_ZuSei.setValidator(QDoubleValidator(-1000,1000,2))
         self.ChuqiJiange_ZuSei.setText(str(self.data["ChuqiJiange_ZuSei"]))
+        self.ChuqiJiange_ZuSei.setValidator(QDoubleValidator(0,100,2))
         self.ChuqiEnd_ZuSei.setText(str(self.data["ChuqiEnd_ZuSei"]))
+        self.ChuqiEnd_ZuSei.setValidator(QDoubleValidator(-1000,1000,2))
         self.LengNing_ZuSei.setText(str(self.data["LengNing_ZuSei"]))
-    
-    #绑定事件
+        self.LengNing_ZuSei.setValidator(QDoubleValidator(-1000,1000,2))
+
+    # 绑定事件
     def BindingEvents(self):
         self.pushButton.clicked.connect(self.cal)
 
-    
     def cal(self):
-        self.data["Zhengfa_DaoTong"]=int(float(self.Zhengfa_DaoTong.text()))
-        self.data["ChuqiStart_DaoTong"]=int(float(self.ChuqiStart_DaoTong.text()))
-        self.data["ChuqiJiange_DaoTong"]=int(float(self.ChuqiJiange_DaoTong.text()))
-        self.data["ChuqiEnd_DaoTong"]=int(float(self.ChuqiEnd_DaoTong.text()))
-        self.data["Zhengfa_ZuSei"]=int(float(self.Zhengfa_ZuSei.text()))
-        self.data["ChuqiStart_ZuSei"]=int(float(self.ChuqiStart_ZuSei.text()))
-        self.data["ChuqiJiange_ZuSei"]=int(float(self.ChuqiJiange_ZuSei.text()))
-        self.data["ChuqiEnd_ZuSei"]=int(float(self.ChuqiEnd_ZuSei.text()))
-        self.data["LengNing_ZuSei"]=int(float(self.LengNing_ZuSei.text()))
+        self.data["Zhengfa_DaoTong"] = int(float(self.Zhengfa_DaoTong.text()))
+        self.data["ChuqiStart_DaoTong"] = int(
+            float(self.ChuqiStart_DaoTong.text()))
+        self.data["ChuqiJiange_DaoTong"] = int(
+            float(self.ChuqiJiange_DaoTong.text()))
+        self.data["ChuqiEnd_DaoTong"] = int(
+            float(self.ChuqiEnd_DaoTong.text()))
+        self.data["Zhengfa_ZuSei"] = int(float(self.Zhengfa_ZuSei.text()))
+        self.data["ChuqiStart_ZuSei"] = int(
+            float(self.ChuqiStart_ZuSei.text()))
+        self.data["ChuqiJiange_ZuSei"] = int(
+            float(self.ChuqiJiange_ZuSei.text()))
+        self.data["ChuqiEnd_ZuSei"] = int(float(self.ChuqiEnd_ZuSei.text()))
+        self.data["LengNing_ZuSei"] = int(float(self.LengNing_ZuSei.text()))
         self.tableWidget.show()
         self.showTable()
-        
 
-    #根据输入参数生成数据
+    # 根据输入参数生成数据
     def makedata(self):
-        temp_DaoTong=self.data["ChuqiStart_DaoTong"]
-        temp_ZuSei=self.data["ChuqiStart_ZuSei"]
-        res=[[temp_DaoTong],[temp_ZuSei]]
-        while (temp_DaoTong<self.data["ChuqiEnd_DaoTong"]):
-            temp_DaoTong=temp_DaoTong+self.data["ChuqiJiange_DaoTong"]
-            res[0].append(temp_DaoTong) 
-            if temp_DaoTong+self.data["ChuqiJiange_DaoTong"]>=self.data["ChuqiEnd_DaoTong"]:
-                res[0].append(self.data["ChuqiEnd_DaoTong"]) 
-                break
-            else:
-                pass
-        while (temp_ZuSei<self.data["ChuqiEnd_ZuSei"]):
-            temp_ZuSei=temp_ZuSei+self.data["ChuqiJiange_ZuSei"]
-            res[1].append(temp_ZuSei) 
-            if temp_ZuSei+self.data["ChuqiJiange_ZuSei"]>=self.data["ChuqiEnd_ZuSei"]:
-                res[1].append(self.data["ChuqiEnd_ZuSei"]) 
-                break
-            else:
-                pass
+        temp_DaoTong = self.data["ChuqiStart_DaoTong"]
+        temp_ZuSei = self.data["ChuqiStart_ZuSei"]
+        res = [[temp_DaoTong], [temp_ZuSei]]
+        if temp_DaoTong<= self.data["ChuqiEnd_DaoTong"]:
+            while (temp_DaoTong < self.data["ChuqiEnd_DaoTong"]):
+                temp_DaoTong=temp_DaoTong+self.data["ChuqiJiange_DaoTong"]
+                if temp_DaoTong >= self.data["ChuqiEnd_DaoTong"]:
+                    res[0].append(self.data["ChuqiEnd_DaoTong"])
+                    break
+                else:
+                    res[0].append(temp_DaoTong)
+        elif temp_DaoTong>= self.data["ChuqiEnd_DaoTong"]:
+            while (temp_DaoTong > self.data["ChuqiEnd_DaoTong"]):
+                temp_DaoTong=temp_DaoTong-self.data["ChuqiJiange_DaoTong"]
+                if temp_DaoTong<= self.data["ChuqiEnd_DaoTong"]:
+                    res[0].append(self.data["ChuqiEnd_DaoTong"])
+                    break
+                else:
+                    res[0].append(temp_DaoTong)
+        else:
+            pass
+
+        if temp_ZuSei<= self.data["ChuqiEnd_ZuSei"]:
+            while (temp_ZuSei < self.data["ChuqiEnd_ZuSei"]):
+                temp_ZuSei=temp_ZuSei+self.data["ChuqiJiange_ZuSei"]
+                if temp_ZuSei >= self.data["ChuqiEnd_ZuSei"]:
+                    res[1].append(self.data["ChuqiEnd_ZuSei"])
+                    break
+                else:
+                    res[1].append(temp_ZuSei)
+        elif temp_ZuSei>= self.data["ChuqiEnd_ZuSei"]:
+            while (temp_ZuSei > self.data["ChuqiEnd_ZuSei"]):
+                temp_ZuSei=temp_ZuSei-self.data["ChuqiJiange_ZuSei"]
+                if temp_ZuSei <= self.data["ChuqiEnd_ZuSei"]:
+                    res[1].append(self.data["ChuqiEnd_ZuSei"])
+                    break
+                else:
+                    res[1].append(temp_ZuSei)
+        else:
+            pass  
         return res
-    
-    #表格
+
+    # 表格
     def showTable(self):
-        self.tableWidget.verticalHeader().setVisible(False) 
+        self.tableWidget.verticalHeader().setVisible(False)
         self.tableWidget.horizontalHeader().setVisible(False)
-        tableData=self.makedata()
+        tableData = self.makedata()
         self.tableWidget.setColumnCount(len(tableData[0])+3)
         self.tableWidget.setRowCount(len(tableData[1])+3)
-        totalw=0
-        totalh=0
-        w=40
-        h=35
+        totalw = 0
+        totalh = 0
+        w = 40
+        h = 35
         for index2 in range(len(tableData[0])+3):
-            w=0
-            if index2==0 or index2==1:
-                w=40
+            w = 0
+            if index2 == 0 or index2 == 1:
+                w = 40
             else:
-                w=60
-            totalw=totalw+w
-            self.tableWidget.setColumnWidth(index2, w*gl.w);
+                w = 60
+            totalw = totalw+w
+            self.tableWidget.setColumnWidth(index2, w*gl.w)
         for index3 in range(len(tableData[1])+3):
-            totalh=totalh+h
-            self.tableWidget.setRowHeight(index3,h*gl.h)
-        self.tableWidget.setGeometry(QtCore.QRect(300*gl.w, 75*gl.h, (totalw+2)*gl.w, (totalh+2)*gl.h))
+            totalh = totalh+h
+            self.tableWidget.setRowHeight(index3, h*gl.h)
+        totalw=1200 if totalw>1200 else totalw
+        totalh=780 if totalw>780 else totalw
+        self.tableWidget.setGeometry(QtCore.QRect(
+            300*gl.w, 75*gl.h, (totalw+2)*gl.w, (totalh+2)*gl.h))
 
-        #合并单元格内容设置
+        # 合并单元格内容设置
         Item1 = QtWidgets.QTableWidgetItem('Vr/Vc')
         Item1.setTextAlignment(QtCore.Qt.AlignCenter)
         self.tableWidget.setItem(0, 0, Item1)
@@ -245,36 +281,49 @@ class Ui_CanshuChuxuan(QWidget):
         Item2 = QtWidgets.QTableWidgetItem('导通Vr温度')
         Item2.setTextAlignment(QtCore.Qt.AlignCenter)
         self.tableWidget.setItem(0, 2, Item2)
-        self.tableWidget.setSpan(0, 2, 1,len(tableData[0])+1)
-        Item3 = QtWidgets.QTableWidgetItem('阻断Vr温度')
+        self.tableWidget.setSpan(0, 2, 1, len(tableData[0])+1)
+        Item3 = QtWidgets.QTableWidgetItem('阻\n断\nVr\n温\n度')
         Item3.setTextAlignment(QtCore.Qt.AlignCenter)
         self.tableWidget.setItem(2, 0, Item3)
-        self.tableWidget.setSpan(2, 0,len(tableData[1])+1,1)
+        self.tableWidget.setSpan(2, 0, len(tableData[1])+1, 1)
         self.tableWidget.setItem(1, 2, QtWidgets.QTableWidgetItem("℃"))
         self.tableWidget.setItem(2, 1, QtWidgets.QTableWidgetItem("℃"))
         self.tableWidget.setItem(2, 2, QtWidgets.QTableWidgetItem("K"))
         for index in range(len(tableData[0])):
-            self.tableWidget.setItem(1, index+3, QtWidgets.QTableWidgetItem(str(tableData[0][index])))
-            self.tableWidget.setItem(2, index+3, QtWidgets.QTableWidgetItem(""))
+            self.tableWidget.setItem(
+                1, index+3, QtWidgets.QTableWidgetItem(str(tableData[0][index])))
+            self.tableWidget.setItem(
+                2, index+3, QtWidgets.QTableWidgetItem(str(round(ErYuanZhuangZhi.CToK(tableData[0][index]),2))))
         for index1 in range(len(tableData[1])):
-            self.tableWidget.setItem(index1+3, 1, QtWidgets.QTableWidgetItem(str(tableData[1][index1])))
-            self.tableWidget.setItem(index1+3, 2, QtWidgets.QTableWidgetItem(""))
-        self.setStyleSheet()
+            self.tableWidget.setItem(
+                index1+3, 1, QtWidgets.QTableWidgetItem(str(tableData[1][index1])))
+            self.tableWidget.setItem(
+                index1+3, 2, QtWidgets.QTableWidgetItem(str(round(ErYuanZhuangZhi.CToK(tableData[1][index1]),2))))
+        # 填充计算数据
+        for index2 in range(len(tableData[1])):
+            for index3 in range(len(tableData[0])):
+                RCij = ErYuanZhuangZhi.CalRC(ErYuanZhuangZhi.CToK(self.data["Zhengfa_DaoTong"]), ErYuanZhuangZhi.CToK(self.data["Zhengfa_ZuSei"]), ErYuanZhuangZhi.CToK(
+                    self.data["LengNing_ZuSei"]), ErYuanZhuangZhi.CToK(tableData[0][index3]), ErYuanZhuangZhi.CToK(tableData[1][index2]))
+                self.tableWidget.setItem(
+                    index2+3, index3+3, QtWidgets.QTableWidgetItem(str(round(RCij, 2))))
+        self.setMyStyleSheet()
 
-    #设置表格样式
-    def setStyleSheet(self):
-        #亮灰色
-        tableData=self.makedata()
-        color_gray=QtGui.QColor(211, 211, 211, 160)
-        self.tableWidget.item(0,0).setBackground(color_gray)
-        self.tableWidget.item(0,2).setBackground(color_gray)
-        self.tableWidget.item(2,0).setBackground(color_gray)
-        self.tableWidget.item(2,1).setBackground(color_gray)
-        self.tableWidget.item(2,2).setBackground(color_gray)
-        self.tableWidget.item(1,2).setBackground(color_gray)
+    # 设置表格样式
+    def setMyStyleSheet(self):
+        # 亮灰色
+        tableData = self.makedata()
+        color_gray = QtGui.QColor(211, 211, 211, 160)
+        self.tableWidget.item(0, 0).setBackground(color_gray)
+        self.tableWidget.item(0, 2).setBackground(color_gray)
+        self.tableWidget.item(2, 0).setBackground(color_gray)
+        self.tableWidget.item(2, 1).setBackground(color_gray)
+        self.tableWidget.item(2, 2).setBackground(color_gray)
+        self.tableWidget.item(1, 2).setBackground(color_gray)
         for index in range(len(tableData[0])):
             self.tableWidget.item(1, index+3).setBackground(color_gray)
             self.tableWidget.item(2, index+3).setBackground(color_gray)
         for index1 in range(len(tableData[1])):
             self.tableWidget.item(index1+3, 1).setBackground(color_gray)
             self.tableWidget.item(index1+3, 2).setBackground(color_gray)
+        # 表格边框
+        # self.setStyleSheet("QTableWidget::item{border:1px solid #000000}")

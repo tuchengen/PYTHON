@@ -10,10 +10,6 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QWidget,QDialog
-# from UI.Ui_PileSelectTable import Ui_PileSelectTable
-# from UI.Ui_ReGuanSelect import Ui_ReGuanSelect
-# from UI.Ui_ProductCheckTable import Ui_ProductCheckTable
-# from UI.Ui_ProductCheck import Ui_ProductCheck
 from UI.Ui_About import Ui_Dialog
 from UI.Ui_Logo import LOGO
 from UI.Ui_ProductSelect.ProductSelect import Ui_ProductSelect
@@ -68,24 +64,6 @@ class Ui_mainWindow(object):
         self.XiangxiPinggu=Ui_XiangxiPinggu(mainWindow)
         self.XiangxiPinggu.setGeometry(QtCore.QRect(0, 0, 1800*gl.w, 1000*gl.h))
         self.XiangxiPinggu.hide()
-        # self.ProductSelect.setGeometry(QtCore.QRect(0, 0, 1800, 1000))
-        # self.ProductSelect.show()
-        # self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
-        # self.gridLayout.setObjectName("gridLayout")
-        # self.LOGO= LOGO()
-        # self.gridLayout.addWidget(self.LOGO, 0, 0, 1, 1)
-        # self.PileSelectTable = PileSelectTable()
-        # self.ReGuanSelect = ReGuanSelect()
-        # self.ProductCheckTable = ProductCheckTable()
-        # self.ProductCheck = ProductCheck()
-        # self.ReGuanSelect.setMaximumSize(QtCore.QSize(500, 16777215))
-        # self.ReGuanSelect.mySignal.connect(self.getShangxuanSignal)
-        # oPileSelectData=self.InitPileSelectData()
-        # oPileSelectTableData=self.InitPileSelectTableData()
-        # self.ReGuanSelect.Refreash(oPileSelectData)
-        # self.PileSelectTable.Refreash(oPileSelectTableData)
-        # self.gridLayout.addWidget(self.ReGuanSelect, 0, 0, 1, 1)
-        # self.gridLayout.addWidget(self.PileSelectTable, 0, 1, 1, 1)
         self.Pages[0]=self.LOGO
         self.Pages[1]=self.ProductSelect
         self.Pages[2]=self.ProductCheck
@@ -111,15 +89,6 @@ class Ui_mainWindow(object):
         self.About.setObjectName("About")
         if self.IsGm==1:
             self.SysSetting(mainWindow)
-        # if self.IsGm==1:
-        #     self.SysSetting = QtWidgets.QMenu(self.menubar)
-        #     self.SysSetting.setObjectName("SysSetting")
-        #     self.actionProduct = QtWidgets.QAction(mainWindow)
-        #     self.actionProduct.setObjectName("actionProduct")
-        #     self.actioncanshu = QtWidgets.QAction(mainWindow)
-        #     self.actioncanshu.setObjectName("actioncanshu")
-        #     self.SysSetting.addAction(self.actionProduct)
-        #     self.SysSetting.addAction(self.actioncanshu)
         mainWindow.setMenuBar(self.menubar)
         self.action_2 = QtWidgets.QAction(mainWindow)
         self.action_2.setObjectName("action_2")
@@ -154,10 +123,7 @@ class Ui_mainWindow(object):
         self.ChangPingJiaoHe.triggered.connect(lambda: self.JumpToPage(2))
         self.canshuchuxuan.triggered.connect(lambda: self.JumpToPage(5))
         self.xiangxipinggu.triggered.connect(lambda: self.JumpToPage(6))
-        # self.actionProduct.triggered.connect(self.JumpToPProductMgr)
-        # self.actioncanshu.triggered.connect(self.JumpToDensityMgr)
-        # if self.IsGm==1:
-        #     self.SysSetting(mainWindow)
+      
         
         QtCore.QMetaObject.connectSlotsByName(mainWindow)
 
@@ -232,7 +198,7 @@ class Ui_mainWindow(object):
     #     oData["tabledata"]=[]
     #     item={}
     #     item["reyuan"]="热源1"
-    #     item["gonglv"]=0
+    #     item["gonglv_high"]=0
     #     item["juli"]=100
     #     oData["tabledata"].append(item)
     #     return oData

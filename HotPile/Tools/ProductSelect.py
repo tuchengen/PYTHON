@@ -219,7 +219,12 @@ def sortProductList(selectData,ProductData):
 
     for item in ProductData:
         #校核功率
-        if item['prtkong20']-CalTotalgonglv(selectData)<1e-6:
+        ChuanRe_high=GetChuanReNengli(float(dicselectData['hightemp']),item['prtkong20'],1)
+        ChuanRe_low=GetChuanReNengli(float(dicselectData['lowtemp']),item['prtkong20'],1)
+        if ChuanRe_high-CalTotalgonglv(selectData,1)<1e-6:
+            unsuitablelist.append(item)
+            continue
+        if ChuanRe_low-CalTotalgonglv(selectData,2)<1e-6:
             unsuitablelist.append(item)
             continue
         #校核热流密度
@@ -287,7 +292,8 @@ def CalYeSai(shaixuanInfo,productid):
     return result
 
 #计算需求总功率
-def CalTotalgonglv(shaixuanInfo):
+#itype 1 表示计算高温  2 表示计算低温
+def CalTotalgonglv(shaixuanInfo,itype=1):
     if len(shaixuanInfo)<1:
         return 0
     dicshaixuanInfo=eval(shaixuanInfo)
@@ -295,7 +301,10 @@ def CalTotalgonglv(shaixuanInfo):
         return 0
     reyuangonglv=0
     for  item in dicshaixuanInfo["tabledata"]:
-        reyuangonglv=reyuangonglv+item["gonglv"]*item["juli"]
+        if itype==1:
+            reyuangonglv=reyuangonglv+item["gonglv_high"]*item["juli"]
+        else:
+            reyuangonglv=reyuangonglv+item["gonglv_low"]*item["juli"]
     if dicshaixuanInfo["wanqunum"]==0:
         return reyuangonglv*1e-3
     else:
@@ -369,6 +378,13 @@ def GetCheckData(oPara):
     res["tempeding"]=oPara["tempeding"]
     res["yesaieding"]=str(round(yesail_eDing,2))
     return res
+
+#计算高温工况传热能力
+#n 传热系数 
+#Temper 温度
+#ChuanReAt20 管型对应的20℃传热能力
+def GetChuanReNengli(Temper,ChuanReAt20,n=1):
+    return ChuanReAt20+n*((Temper-20)/10)
     
 
 

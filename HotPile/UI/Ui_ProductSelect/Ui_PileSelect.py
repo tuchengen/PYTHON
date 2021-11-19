@@ -88,48 +88,47 @@ class Ui_ReGuanSelect(object):
         self.label_13.setGeometry(QtCore.QRect(21*gl.w, 280*gl.h, 60*gl.w, 16*gl.h))
         self.label_13.setObjectName("label_13")
         self.pushButton = QtWidgets.QPushButton(Form)
-        self.pushButton.setGeometry(QtCore.QRect(80*gl.w, 610*gl.h, 75*gl.w, 23*gl.h))
+        self.pushButton.setGeometry(QtCore.QRect(80*gl.w, 680*gl.h, 75*gl.w, 23*gl.h))
         self.pushButton.setObjectName("pushButton")
         self.tableWidget = QtWidgets.QTableWidget(Form)
-        self.tableWidget.setGeometry(QtCore.QRect(20*gl.w, 400*gl.h, 315*gl.w, 150*gl.h))
+        self.tableWidget.setGeometry(QtCore.QRect(20*gl.w, 400*gl.h, 385*gl.w, 150*gl.h))
         self.tableWidget.setObjectName("tableWidget")
-        self.tableWidget.setColumnCount(5)
+        self.tableWidget.setColumnCount(6)
         self.tableWidget.setRowCount(0)
         self.tableWidget.resizeRowsToContents()
         # self.tableWidget.horizontalHeader().setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
         self.tableWidget.verticalHeader().setVisible(False)  
         self.tableWidget.horizontalHeader().setVisible(False)  
-        # item = QtWidgets.QTableWidgetItem()
-        # self.tableWidget.setHorizontalHeaderItem(0, item)
-        # item = QtWidgets.QTableWidgetItem()
-        # self.tableWidget.setHorizontalHeaderItem(1, item)
-        # item = QtWidgets.QTableWidgetItem()
-        # self.tableWidget.setHorizontalHeaderItem(2, item)
-        # item = QtWidgets.QTableWidgetItem()
-        # self.tableWidget.setHorizontalHeaderItem(3, item)
-        # item = QtWidgets.QTableWidgetItem()
-        # self.tableWidget.setHorizontalHeaderItem(4, item)
-        # item = QtWidgets.QTableWidgetItem()
-        # self.tableWidget.setHorizontalHeaderItem(5, item)
-        # item = QtWidgets.QTableWidgetItem()
-        # self.tableWidget.setHorizontalHeaderItem(6, item)
         self.tableWidget.setColumnWidth(0, 40*gl.w);  
         self.tableWidget.setColumnWidth(1, 60*gl.w); 
         self.tableWidget.setColumnWidth(2, 70*gl.w); 
         self.tableWidget.setColumnWidth(3, 70*gl.w); 
         self.tableWidget.setColumnWidth(4, 70*gl.w); 
+        self.tableWidget.setColumnWidth(5, 70*gl.w); 
         # self.tableWidget.setColumnWidth(5, 80); 
         # self.tableWidget.setColumnWidth(6, 80); 
         self.label_18 = QtWidgets.QLabel(Form)
         self.label_18.setGeometry(QtCore.QRect(24*gl.w, 560*gl.h, 60*gl.w, 16*gl.h))
         self.label_18.setObjectName("label_18")
+        self.label_21 = QtWidgets.QLabel(Form)
+        self.label_21.setGeometry(QtCore.QRect(24*gl.w, 600*gl.h, 120*gl.w, 16*gl.h))
+        self.label_21.setObjectName("label_21")
+        self.label_22 = QtWidgets.QLabel(Form)
+        self.label_22.setGeometry(QtCore.QRect(24*gl.w, 640*gl.h, 120*gl.w, 16*gl.h))
+        self.label_22.setObjectName("label_22")
         self.wanqunum = QtWidgets.QLineEdit(Form)
         self.wanqunum.setGeometry(QtCore.QRect(90*gl.w, 560*gl.h, 41*gl.w, 21*gl.h))
         self.wanqunum.setText("")
         self.wanqunum.setObjectName("wanqunum")
-        self.totalgonglv = QtWidgets.QLabel(Form)
-        self.totalgonglv.setGeometry(QtCore.QRect(150*gl.w, 560*gl.h, 41*gl.w, 20*gl.h))
-        self.totalgonglv.setObjectName("totalgonglv")
+        self.totalgonglv_high = QtWidgets.QLabel(Form)
+        self.totalgonglv_high.setGeometry(QtCore.QRect(150*gl.w, 600*gl.h, 41*gl.w, 20*gl.h))
+        self.totalgonglv_high.setObjectName("totalgonglv_high")
+
+        self.totalgonglv_low = QtWidgets.QLabel(Form)
+        self.totalgonglv_low.setGeometry(QtCore.QRect(150*gl.w, 640*gl.h, 41*gl.w, 20*gl.h))
+        self.totalgonglv_low.setObjectName("totalgonglv_low")
+
+
         self.chongzhuangtemp = QtWidgets.QLineEdit(Form)
         self.chongzhuangtemp.setGeometry(QtCore.QRect(86*gl.w, 320*gl.h, 150*gl.w, 20*gl.h))
         self.chongzhuangtemp.setText("")
@@ -141,8 +140,11 @@ class Ui_ReGuanSelect(object):
         self.label_15.setGeometry(QtCore.QRect(20*gl.w, 320*gl.h, 60*gl.w, 16*gl.h))
         self.label_15.setObjectName("label_15")
         self.label_20 = QtWidgets.QLabel(Form)
-        self.label_20.setGeometry(QtCore.QRect(200*gl.w, 560*gl.h, 41*gl.w, 20*gl.h))
+        self.label_20.setGeometry(QtCore.QRect(200*gl.w, 600*gl.h, 41*gl.w, 20*gl.h))
         self.label_20.setObjectName("label_20")
+        self.label_23 = QtWidgets.QLabel(Form)
+        self.label_23.setGeometry(QtCore.QRect(200*gl.w, 640*gl.h, 41*gl.w, 20*gl.h))
+        self.label_23.setObjectName("label_23")
         self.label_16 = QtWidgets.QLabel(Form)
         self.label_16.setGeometry(QtCore.QRect(20*gl.w, 360*gl.h, 60*gl.w, 16*gl.h))
         self.label_16.setObjectName("label_16")
@@ -153,7 +155,8 @@ class Ui_ReGuanSelect(object):
         self.thickness.setGeometry(QtCore.QRect(86*gl.w, 360*gl.h, 150*gl.w, 20*gl.h))
         self.thickness.setText("")
         self.thickness.setObjectName("thickness")
-        self.wanqunum.textChanged.connect(lambda:self.totalgonglv.setText(str(self.CalTotalgonglv())))
+        # self.wanqunum.textChanged.connect(lambda:self.totalgonglv_high.setText(str(self.CalTotalgonglv(1))))
+        self.wanqunum.textChanged.connect(self.ReCalGonglv)
         self.pushButton.clicked.connect(lambda:self.sendshanxuaninfo())
         self.reliumidu.textChanged.connect(lambda:self.textchange())
         # self.type.textChanged.connect(lambda:self.textchange())
@@ -166,7 +169,8 @@ class Ui_ReGuanSelect(object):
         self.wanqunum.textChanged.connect(lambda:self.textchange())
         self.thickness.textChanged.connect(lambda:self.textchange())
         #表格内容变化
-        self.tableWidget.itemChanged.connect(lambda:self.totalgonglv.setText(str(self.CalTotalgonglv())))
+        # self.tableWidget.itemChanged.connect(lambda:self.totalgonglv_high.setText(str(self.CalTotalgonglv(1))))
+        self.tableWidget.itemChanged.connect(self.ReCalGonglv)
 
 
         self.retranslateUi(Form)
@@ -192,27 +196,17 @@ class Ui_ReGuanSelect(object):
         self.label_12.setText(_translate("Form", "℃"))
         self.label_13.setText(_translate("Form", "额定工作："))
         self.pushButton.setText(_translate("Form", "筛选"))
-        # item = self.tableWidget.horizontalHeaderItem(0)
-        # item.setText(_translate("Form", "序号"))
-        # item = self.tableWidget.horizontalHeaderItem(1)
-        # item.setText(_translate("Form", "热源"))
-        # item = self.tableWidget.horizontalHeaderItem(2)
-        # item.setText(_translate("Form", "传热功率(W)"))
-        # item = self.tableWidget.horizontalHeaderItem(3)
-        # item.setText(_translate("Form", "高温工况需求功率"))
-        # item = self.tableWidget.horizontalHeaderItem(4)
-        # item.setText(_translate("Form", "低温工况需求功率"))
-        # item = self.tableWidget.horizontalHeaderItem(5)
-        # item.setText(_translate("Form", "传输距离(mm)"))
-        # item = self.tableWidget.horizontalHeaderItem(6)
-        # item.setText(_translate("Form", "操作"))
         self.label_18.setText(_translate("Form", "弯曲个数："))
-        self.totalgonglv.setText(_translate("Form", "0"))
+        self.totalgonglv_high.setText(_translate("Form", "0"))
+        self.totalgonglv_low.setText(_translate("Form", "0"))
         self.label_14.setText(_translate("Form", "℃"))
         self.label_15.setText(_translate("Form", "充装温度："))
         self.label_20.setText(_translate("Form", "Wm"))
         self.label_16.setText(_translate("Form", "厚度："))
         self.label_17.setText(_translate("Form", "mm"))
+        self.label_21.setText(_translate("Form", "高温工况需求总功率："))
+        self.label_22.setText(_translate("Form", "低温工况需求总功率："))
+        self.label_23.setText(_translate("Form", "Wm"))
         self.reliumidu.setText(_translate("Form", "1.2"))
         self.type.setCurrentText(_translate("Form", "外贴"))
         self.rongcha.setText(_translate("Form", "10"))
@@ -225,24 +219,10 @@ class Ui_ReGuanSelect(object):
         self.thickness.setText(_translate("thickness", "10"))
         self.FillTableData([{
             "reyuan":"热源1",
-            "gonglv":"50",
+            "gonglv_high":"50",
+            "gonglv_low":"50",
             "juli":"1"
-        }])
-        
-        
-    # def Refreash(self,oData):
-    #     self.oData=oData
-    #     self.reliumidu.setText(str(oData["reliumidu"]))
-    #     self.type.setCurrentText(str(oData["type"]))
-    #     self.rongcha.setText(str(oData["rongcha"]))
-    #     self.weight.setText(str(oData["weight"]))
-    #     self.hightemp.setText(str(oData["hightemp"]))
-    #     self.lowtemp.setText(str(oData["lowtemp"]))
-    #     self.edingtemp.setText(str(oData["edingtemp"]))
-    #     self.chongzhuangtemp.setText(str(oData["chongzhuangtemp"]))
-    #     self.wanqunum.setText(str(oData["wanqunum"]))
-    #     self.FillTableData(oData["tabledata"])
-    
+        }])  
     def sendshanxuaninfo(self):
         self.TabdataToodata()
         self.mySignal.emit(str(self.oData),1)
@@ -252,15 +232,6 @@ class Ui_ReGuanSelect(object):
 # 列表内添加按钮
     def buttonForRow(self,id):
         widget=QtWidgets.QWidget()
-        # # 修改
-        # updateBtn = QtWidgets.QPushButton('修改')
-        # updateBtn.setStyleSheet(''' text-align : center;
-        #                                   background-color : NavajoWhite;
-        #                                   height : 30px;
-        #                                   border-style: outset;
-        #                                   font : 13px  ''')
-
-        # updateBtn.clicked.connect(lambda:self.updateTable(id))
 
         # 增加
         addBtn = QtWidgets.QPushButton('+')
@@ -300,24 +271,30 @@ class Ui_ReGuanSelect(object):
         self.tableWidget.setItem(0, 1, titleitem)
         titleitem=QtWidgets.QLabel()
         titleitem.setWordWrap(True)
-        titleitem.setText("传热功率\n(W)")
+        titleitem.setText("高温工况需求功率(W)")
         titleitem.setAlignment(QtCore.Qt.AlignCenter)
         self.tableWidget.setCellWidget(0,2,titleitem)
         titleitem=QtWidgets.QLabel()
         titleitem.setWordWrap(True)
-        titleitem.setText("传热距离\n(mm)")
+        titleitem.setText("低温工况需求功率(W)")
         titleitem.setAlignment(QtCore.Qt.AlignCenter)
         self.tableWidget.setCellWidget(0,3,titleitem)
+        titleitem=QtWidgets.QLabel()
+        titleitem.setWordWrap(True)
+        titleitem.setText("传热距离\n(mm)")
+        titleitem.setAlignment(QtCore.Qt.AlignCenter)
+        self.tableWidget.setCellWidget(0,4,titleitem)
         titleitem=QtWidgets.QTableWidgetItem("操作")
         titleitem.setTextAlignment(QtCore.Qt.AlignCenter)
-        self.tableWidget.setItem(0, 4, titleitem)
+        self.tableWidget.setItem(0, 5, titleitem)
         
         for row_number, row_data in enumerate(tabledata):
             # self.tableWidget.setItem(row_number, 0, QtWidgets.QTableWidgetItem(str(row_number+1)))
             self.tableWidget.setItem(row_number+1, 1, QtWidgets.QTableWidgetItem(str(row_data["reyuan"])))
-            self.tableWidget.setItem(row_number+1, 2, QtWidgets.QTableWidgetItem(str(row_data["gonglv"])))
-            self.tableWidget.setItem(row_number+1, 3, QtWidgets.QTableWidgetItem(str(row_data["juli"])))
-            self.tableWidget.setCellWidget(row_number+1, 4, self.buttonForRow(row_number))
+            self.tableWidget.setItem(row_number+1, 2, QtWidgets.QTableWidgetItem(str(row_data["gonglv_high"])))
+            self.tableWidget.setItem(row_number+1, 3, QtWidgets.QTableWidgetItem(str(row_data["gonglv_low"])))
+            self.tableWidget.setItem(row_number+1, 4, QtWidgets.QTableWidgetItem(str(row_data["juli"])))
+            self.tableWidget.setCellWidget(row_number+1, 5, self.buttonForRow(row_number))
             item0 = QtWidgets.QTableWidgetItem(str(row_number+1))
             item0.setFlags( QtCore.Qt.ItemIsEnabled)
             self.tableWidget.setItem(row_number+1, 0, item0)
@@ -326,7 +303,8 @@ class Ui_ReGuanSelect(object):
         self.TabdataToodata()
         item={}
         item["reyuan"]="热源"+str(len(self.oData["tabledata"])+1)
-        item["gonglv"]=0
+        item["gonglv_high"]=0
+        item["gonglv_low"]=0
         item["juli"]=0
         self.oData["tabledata"].append(item)
         self.FillTableData(self.oData["tabledata"])
@@ -362,7 +340,8 @@ class Ui_ReGuanSelect(object):
         self.oData["chongzhuangtemp"]=self.chongzhuangtemp.text()
         self.oData["wanqunum"]=self.wanqunum.text()
         self.oData["thickness"]=self.thickness.text()
-        self.totalgonglv.setText(str(self.CalTotalgonglv()))
+        self.totalgonglv_high.setText(str(self.CalTotalgonglv(1)))
+        self.totalgonglv_low.setText(str(self.CalTotalgonglv(2)))
 
 
     #将界面中表格当前数值复制给self.oData["tabledata"]
@@ -373,21 +352,24 @@ class Ui_ReGuanSelect(object):
                 continue
             item={}
             item["reyuan"]=self.tableWidget.item(i, 1).text()
-            item["gonglv"]=float(self.tableWidget.item(i, 2).text())
-            item["juli"]=float(self.tableWidget.item(i, 3).text())
+            item["gonglv_high"]=float(self.tableWidget.item(i, 2).text())
+            item["gonglv_low"]=float(self.tableWidget.item(i, 3).text())
+            item["juli"]=float(self.tableWidget.item(i, 4).text())
             data.append(item)
         self.oData["tabledata"]=data
     
     #计算总功率
-    def CalTotalgonglv(self):
+    #itype 1 表示计算高温  2 表示计算低温
+    def CalTotalgonglv(self,itype):
         if len(self.wanqunum.text())==0 or self.tableWidget.rowCount()==0:
             self.oData["wanqunum"]=0
         else:
             self.oData["wanqunum"]=float(self.wanqunum.text())
         reyuangonglv=0
+        icoulumn=2 if itype==1 else 3
         for  i in range(self.tableWidget.rowCount()):
-            if isinstance(self.tableWidget.item(i, 2), QtWidgets.QTableWidgetItem) and isinstance(self.tableWidget.item(i, 3), QtWidgets.QTableWidgetItem):
-                tempvaule=float(self.tableWidget.item(i, 2).text())*float(self.tableWidget.item(i, 3).text())
+            if isinstance(self.tableWidget.item(i, icoulumn), QtWidgets.QTableWidgetItem) and isinstance(self.tableWidget.item(i, 4), QtWidgets.QTableWidgetItem):
+                tempvaule=float(self.tableWidget.item(i, icoulumn).text())*float(self.tableWidget.item(i, 4).text())
                 reyuangonglv=reyuangonglv+tempvaule
             else:
                 pass
@@ -395,13 +377,7 @@ class Ui_ReGuanSelect(object):
             return reyuangonglv*1e-3
         else:
             return reyuangonglv*(1+self.oData["wanqunum"]*0.1)*1e-3
-
-# for row_number, row_data in enumerate(rsdata):
-#     self.ui.tableWidget.insertRow(row_number)
-#     for i in range(len(row_data)+1):
-#         if i<len(row_data):
-#             self.ui.tableWidget.setItem(row_number, i, QtWidgets.QTableWidgetItem(str(row_data[i])))
-#         # 添加按钮
-#         if i==len(row_data):
-#             # 传入当前id
-#             self.ui.tableWidget.setCellWidget(row_number, i,self.buttonForRow(str(row_data[0])))
+    
+    def ReCalGonglv(self):
+        self.totalgonglv_high.setText(str(self.CalTotalgonglv(1)))
+        self.totalgonglv_low.setText(str(self.CalTotalgonglv(2)))

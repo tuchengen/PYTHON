@@ -39,8 +39,6 @@ class LOGO(QWidget):
     def retranslateUi(self):
         _translate = QtCore.QCoreApplication.translate
         self.setWindowTitle(_translate("self", "Form"))
-
-
         # palette = QtGui.QPalette()
         # pix = QtGui.QPixmap("background.jpg”)
         # pix = pix.scaled(self.width(),self.height())

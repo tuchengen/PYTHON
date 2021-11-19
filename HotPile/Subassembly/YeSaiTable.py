@@ -19,36 +19,6 @@ class YeSaiTable(QtWidgets.QTableWidget):
         self.verticalHeader().setVisible(False) 
         self.horizontalHeader().setVisible(False)
         self.setObjectName("tableWidget")
-        # self.setColumnCount(7)
-        # self.setRowCount(7)
-        # item = QtWidgets.QTableWidgetItem()
-        # self.setVerticalHeaderItem(0, item)
-        # item = QtWidgets.QTableWidgetItem()
-        # self.setVerticalHeaderItem(1, item)
-        # item = QtWidgets.QTableWidgetItem()
-        # self.setVerticalHeaderItem(2, item)
-        # item = QtWidgets.QTableWidgetItem()
-        # self.setVerticalHeaderItem(3, item)
-        # item = QtWidgets.QTableWidgetItem()
-        # self.setVerticalHeaderItem(4, item)
-        # item = QtWidgets.QTableWidgetItem()
-        # self.setVerticalHeaderItem(5, item)
-        # item = QtWidgets.QTableWidgetItem()
-        # self.setVerticalHeaderItem(6, item)
-        # item = QtWidgets.QTableWidgetItem()
-        # self.setHorizontalHeaderItem(0, item)
-        # item = QtWidgets.QTableWidgetItem()
-        # self.setHorizontalHeaderItem(1, item)
-        # item = QtWidgets.QTableWidgetItem()
-        # self.setHorizontalHeaderItem(2, item)
-        # item = QtWidgets.QTableWidgetItem()
-        # self.setHorizontalHeaderItem(3, item)
-        # item = QtWidgets.QTableWidgetItem()
-        # self.setHorizontalHeaderItem(4, item)
-        # item = QtWidgets.QTableWidgetItem()
-        # self.setHorizontalHeaderItem(5, item)
-        # item = QtWidgets.QTableWidgetItem()
-        # self.setHorizontalHeaderItem(6, item)
 
         self.retranslateUi(Table)
         QtCore.QMetaObject.connectSlotsByName(Table)
@@ -56,34 +26,7 @@ class YeSaiTable(QtWidgets.QTableWidget):
     def retranslateUi(self, Table):
         _translate = QtCore.QCoreApplication.translate
         Table.setWindowTitle(_translate("Table", "Table"))
-        # item = self.verticalHeaderItem(0)
-        # item.setText(_translate("Table", "新建行"))
-        # item = self.verticalHeaderItem(1)
-        # item.setText(_translate("Table", "新建行"))
-        # item = self.verticalHeaderItem(2)
-        # item.setText(_translate("Table", "新建行"))
-        # item = self.verticalHeaderItem(3)
-        # item.setText(_translate("Table", "新建行"))
-        # item = self.verticalHeaderItem(4)
-        # item.setText(_translate("Table", "新建行"))
-        # item = self.verticalHeaderItem(5)
-        # item.setText(_translate("Table", "新建行"))
-        # item = self.verticalHeaderItem(6)
-        # item.setText(_translate("Table", "新建行"))
-        # item = self.horizontalHeaderItem(0)
-        # item.setText(_translate("Table", "新建列"))
-        # item = self.horizontalHeaderItem(1)
-        # item.setText(_translate("Table", "新建列"))
-        # item = self.horizontalHeaderItem(2)
-        # item.setText(_translate("Table", "新建列"))
-        # item = self.horizontalHeaderItem(3)
-        # item.setText(_translate("Table", "新建列"))
-        # item = self.horizontalHeaderItem(4)
-        # item.setText(_translate("Table", "新建列"))
-        # item = self.horizontalHeaderItem(5)
-        # item.setText(_translate("Table", "新建列"))
-        # item = self.horizontalHeaderItem(6)
-        # item.setText(_translate("Table", "新建列"))
+
     
     def  setTableInfo(self,Rowlist,collist):
         self.setColumnCount(len(collist)+2)
@@ -93,7 +36,7 @@ class YeSaiTable(QtWidgets.QTableWidget):
         Item1.setTextAlignment(QtCore.Qt.AlignCenter)
         self.setItem(0, 1, Item1)
         self.setSpan(0, 1, 1, len(collist)+1)
-        Item2 = QtWidgets.QTableWidgetItem('工作温度')
+        Item2 = QtWidgets.QTableWidgetItem('工\n作\n温\n度')
         Item2.setTextAlignment(QtCore.Qt.AlignCenter)
         self.setItem(1, 0, Item2)
         self.setSpan(1, 0, len(Rowlist)+1, 1)
@@ -108,20 +51,6 @@ class YeSaiTable(QtWidgets.QTableWidget):
             self.setItem(m+2, 1, QtWidgets.QTableWidgetItem(str(Rowlist[m])+"℃"))
         for n in range(len(collist)):
             self.setItem(1, n+2, QtWidgets.QTableWidgetItem(str(collist[n])+"℃"))
-        # for i in range(len(Rowlist)):
-        #     item = QtWidgets.QTableWidgetItem()
-        #     self.setVerticalHeaderItem(i, item)
 
-        # for j in range(len(collist)):
-        #     item = QtWidgets.QTableWidgetItem()
-        #     self.setHorizontalHeaderItem(j, item)
-        
-        # for m in range(len(Rowlist)):
-        #     item = self.verticalHeaderItem(m)
-        #     item.setText(str(Rowlist[m])+"℃")
-        
-        # for n in range(len(collist)):
-        #     item = self.horizontalHeaderItem(n)
-        #     item.setText(str(collist[n])+"℃")
 
         
