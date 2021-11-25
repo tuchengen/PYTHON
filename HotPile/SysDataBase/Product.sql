@@ -1,6 +1,0 @@
-INSERT INTO "Product" ("id", "name", "code", "ishape", "thickness", "iapptyle", "wanqu", "chuanre", "perchuanre", "weight", "yesai", "kongnum") VALUES (1, 'Product1', '001', 1, 10.0, 1, 2, 23.0, 20.0, 100.0, 23.0, 23);
-INSERT INTO "Product" ("id", "name", "code", "ishape", "thickness", "iapptyle", "wanqu", "chuanre", "perchuanre", "weight", "yesai", "kongnum") VALUES (2, 'Product2', '002', 1, 10.0, 1, 2, 23.0, 20.0, 100.0, 23.0, 23);
-INSERT INTO "Product" ("id", "name", "code", "ishape", "thickness", "iapptyle", "wanqu", "chuanre", "perchuanre", "weight", "yesai", "kongnum") VALUES (3, 'Product3', '003', 2, 15.0, 2, 0, 25.0, 23.0, 120.0, 22.0, 24);
-INSERT INTO "Product" ("id", "name", "code", "ishape", "thickness", "iapptyle", "wanqu", "chuanre", "perchuanre", "weight", "yesai", "kongnum") VALUES (4, 'Product4', '004', 2, 12.3, 1, 1, 24.0, 25.0, 130.0, 21.0, 10);
-INSERT INTO "Product" ("id", "name", "code", "ishape", "thickness", "iapptyle", "wanqu", "chuanre", "perchuanre", "weight", "yesai", "kongnum") VALUES (5, 'Product5', '005', 2, 12.3, 1, 2, 56.0, 42.0, 140.0, 24.0, 12);
-INSERT INTO "Product" ("id", "name", "code", "ishape", "thickness", "iapptyle", "wanqu", "chuanre", "perchuanre", "weight", "yesai", "kongnum") VALUES (6, 'Product6', '006', 2, 15.3, 2, 0, 12.0, 15.0, 150.0, 12.0, 20);
